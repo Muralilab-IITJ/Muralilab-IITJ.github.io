@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murali Lab | IIT Jodhpur</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .logo-section p {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        
+        /* Navigation styles */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: #3498db;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #3498db;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Main content styles */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .research-content {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .research-intro {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #34495e;
+        }
+        
+        .research-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .research-card {
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #3498db;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .research-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .research-card p {
+            color: #5d6d7e;
+            line-height: 1.6;
+        }
+        
+        /* Footer styles */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+        }
+        
+        .social-links a {
+            color: #ecf0f1;
+            margin-left: 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #3498db;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 10px 15px;
+            }
+            
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-links {
+                margin-top: 15px;
+            }
+            
+            .social-links a {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <h1>Murali Lab</h1>
+                <p>SAIDE IIT Jodhpur</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Publications</a></li>
+                    <li><a href="#">Join</a></li>
+                    <li><a href="#">People</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <h2 class="page-title">Research</h2>
+        <div class="research-content">
+            <!--
+            <p class="research-intro">
+                Our research focuses on understanding the neural mechanisms underlying complex behaviors and cognitive processes. 
+                We employ a multidisciplinary approach combining electrophysiology, imaging, computational modeling, and behavioral analysis 
+                to investigate how neural circuits process information and generate behavior.
+            </p>
+            -->
+            <div class="research-areas">
+                <div class="research-card">
+                    <h3>Strategies to modulate inhibitory control of actions and thoughts</h3>
+                    <p>In everyday life, we are faced with situations where we have to control what to do, what to say, and what we think. How are we able to stop unwanted/inappropriate actions, intrusive thoughts that bother us, and negative emotions which hinder our ability to perform daily tasks? Impairments in inhibitory control manifests as disorders such as Tourette's Syndrome (uncontrollable actions or tics), Obsessive compulsive disorder and anxiety disorders. Using neurofeedback, behavioral, and brain stimulation approaches we will explore ways in which the underlying brain networks can be modulated to have functional effects on controlling actions and thoughts.</p>
+                </div>
+                
+                <div class="research-card">
+                    <h3>Transient neural oscillations and their functional role in cognition</h3>
+                    <p>Neural oscillations have been implicated in the cognitive control of our movements, actions, memory, and thoughts. Neural oscillations often occur as brief "bursts" of activity and are transient in nature. What functional role do they serve in supporting cognition? Understanding these can pave ways to show how brain dynamics change in normal and disease conditions. For e.g. in Parkinson's disease, a neurodegenerative disorder characterized by motor and cognitive impairments, bursty oscillations in the beta band (13-30 Hz) are enhanced in both cortical and sub-cortical regions of the brain which are related to the symptoms such as slowness in movements and tremor.</p>
+                </div>
+                
+                <div class="research-card">
+                    <h3>Computational principles underlying cognitive control </h3>
+                    <p>Theory building requires a good understanding of the mechanistic and computational aspects of the underlying cognitive construct. We will focus on building computational models that bridge the gap between neural processes and behavior. This can range from how one can stop/control their actions to how then the cognitive control networks of the brain achieve this via interaction with sub-cortical networks.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="copyright">
+                <p>© 2025 Murali Lab | IIT Jodhpur</p>
+            </div>
+            <div class="social-links">
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

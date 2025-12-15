@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team | Murali Lab | IIT Jodhpur</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Murali Lab</a></h1>
+                <p>IIT Jodhpur</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="join.html">Join</a></li>
+                    <li><a href="team.html" class="active">Team</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <h2 class="page-title">Our Team</h2>
+        
+        
+
+        <!-- Team Categories -->
+        <div class="team-categories">
+            <button class="category-btn active" data-category="all">All Members</button>
+            <button class="category-btn" data-category="faculty">Faculty</button>
+            <button class="category-btn" data-category="phd">PhD Students</button>
+            <button class="category-btn" data-category="masters">Master's Students</button>
+            <button class="category-btn" data-category="staff">Research Staff</button>
+            <button class="category-btn" data-category="alumni">Alumni</button>
+        </div>
+
+        <!-- Team Members Grid -->
+        <div id="team-container" class="team-container">
+            <!-- Team members will be loaded here -->
+            <div id="team-loading" class="loading">Loading team members...</div>
+        </div>
+        
+        <div id="team-error" class="error-message" style="display: none;">
+            Unable to load team information. Please check back later.
+        </div>
+
+        <!-- Join the Team CTA -->
+        <div class="join-cta">
+            <h3>Interested in joining our team?</h3>
+            <p>We're always looking for passionate researchers at all levels. Check out our <a href="join.html">Join</a> page for current opportunities.</p>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="copyright">
+                <p>© 2025 Murali Lab | IIT Jodhpur</p>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load team data from JSON file
+        async function loadTeam() {
+            const teamContainer = document.getElementById('team-container');
+            const loadingElement = document.getElementById('team-loading');
+            const errorElement = document.getElementById('team-error');
+            
+            try {
+                // Fetch team data from JSON file
+                const response = await fetch('team.json');
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to load team: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (!data.team || data.team.length === 0) {
+                    teamContainer.innerHTML = '<div class="no-members">No team members to display.</div>';
+                    loadingElement.style.display = 'none';
+                    return;
+                }
+                
+                // Display the team
+                displayTeam(data.team);
+                loadingElement.style.display = 'none';
+                
+            } catch (error) {
+                console.error('Error loading team:', error);
+                loadingElement.style.display = 'none';
+                errorElement.style.display = 'block';
+                
+                // Fallback: show a static message
+                teamContainer.innerHTML = `
+                    <div class="error-message">
+                        <p>Unable to load team information. The team data file may be updating.</p>
+                        <p>Please check back in a few moments.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Function to display team members
+        function displayTeam(members) {
+            const teamContainer = document.getElementById('team-container');
+            
+            const teamHTML = members.map(member => {
+                return `
+                    <div class="team-member" data-category="${member.category}">
+                        <div class="member-photo">
+                            <img src="${member.photo}" alt="${member.name}" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+                            <!-- No badge on photo -->
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">${member.name}</h3>
+                            <div class="member-position">${member.position}</div>
+                            <div class="member-bio">
+                                <p>${member.bio}</p>
+                            </div>
+                            <div class="member-interests">
+                                ${member.interests.map(interest => `<span class="interest-tag">${interest}</span>`).join('')}
+                            </div>
+                            <div class="member-meta">
+                                <span class="member-join-date">Joined: ${member.joinDate}</span>
+                                <a href="mailto:${member.email}" class="member-email">
+                                    <i class="fas fa-envelope"></i> Email
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            teamContainer.innerHTML = teamHTML;
+            
+            // Add click event to expand/collapse bio
+            document.querySelectorAll('.member-bio').forEach(bio => {
+                const bioText = bio.querySelector('p');
+                if (bioText.textContent.length > 250) {
+                    bioText.classList.add('collapsed');
+                    bio.insertAdjacentHTML('beforeend', '<button class="read-more-btn">Read more</button>');
+                }
+            });
+        }
+
+        // Category filtering
+        function setupCategoryFilter() {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active button
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // Filter team members
+                    const category = button.dataset.category;
+                    filterTeamMembers(category);
+                });
+            });
+        }
+
+        function filterTeamMembers(category) {
+            const allMembers = document.querySelectorAll('.team-member');
+            
+            if (category === 'all') {
+                allMembers.forEach(member => {
+                    member.style.display = 'flex';
+                });
+            } else {
+                allMembers.forEach(member => {
+                    if (member.dataset.category === category) {
+                        member.style.display = 'flex';
+                    } else {
+                        member.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadTeam();
+            setupCategoryFilter();
+            
+            // Read more button functionality
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('read-more-btn')) {
+                    const bio = e.target.closest('.member-bio');
+                    const bioText = bio.querySelector('p');
+                    bioText.classList.toggle('collapsed');
+                    e.target.textContent = bioText.classList.contains('collapsed') ? 'Read more' : 'Read less';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
