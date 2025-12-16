@@ -309,6 +309,20 @@ main {
     color: #f39c12;
 }
 
+/* ADDED: Undergraduate news type color */
+.sleek-news-item.undergraduate {
+    border-left-color: #1abc9c;
+}
+
+.sleek-news-item.undergraduate:hover {
+    background-color: #e8f8f5;
+    box-shadow: 0 4px 8px rgba(26, 188, 156, 0.1);
+}
+
+.sleek-news-item.undergraduate .sleek-news-icon {
+    color: #1abc9c;
+}
+
 /* Loading and error states */
 .sleek-loading {
     text-align: center;
@@ -322,6 +336,12 @@ main {
     padding: 40px;
     color: #95a5a6;
     font-style: italic;
+}
+
+.error-message {
+    text-align: center;
+    color: #e74c3c;
+    padding: 20px;
 }
 
 /* Responsive adjustments */
@@ -344,8 +364,6 @@ main {
         display: none; /* Hide icons on small screens */
     }
 }
-
-
 
 /* ===== TEAM PAGE STYLES ===== */
 .team-intro {
@@ -438,7 +456,30 @@ main {
     transform: scale(1.05);
 }
 
+/* ADDED: Undergraduate category visual indicator */
+.team-member[data-category="undergraduate"] {
+    border-top: 3px solid #1abc9c;
+}
 
+.team-member[data-category="faculty"] {
+    border-top: 3px solid #9b59b6;
+}
+
+.team-member[data-category="phd"] {
+    border-top: 3px solid #3498db;
+}
+
+.team-member[data-category="masters"] {
+    border-top: 3px solid #f39c12;
+}
+
+.team-member[data-category="staff"] {
+    border-top: 3px solid #e74c3c;
+}
+
+.team-member[data-category="alumni"] {
+    border-top: 3px solid #95a5a6;
+}
 
 /* Member Info */
 .member-info {
@@ -513,6 +554,32 @@ main {
     border-radius: 12px;
     font-size: 0.8rem;
     font-weight: 500;
+}
+
+/* ADDED: Category-specific interest tags */
+.team-member[data-category="undergraduate"] .interest-tag {
+    background-color: #d1f2eb;
+    color: #148f77;
+}
+
+.team-member[data-category="faculty"] .interest-tag {
+    background-color: #e8daef;
+    color: #76448a;
+}
+
+.team-member[data-category="phd"] .interest-tag {
+    background-color: #d6eaf8;
+    color: #21618c;
+}
+
+.team-member[data-category="masters"] .interest-tag {
+    background-color: #fdebd0;
+    color: #b9770e;
+}
+
+.team-member[data-category="staff"] .interest-tag {
+    background-color: #fadbd8;
+    color: #922b21;
 }
 
 /* Member Meta Info */
@@ -683,6 +750,4 @@ footer {
     .social-links a {
         margin: 0 10px;
     }
-
-
 }

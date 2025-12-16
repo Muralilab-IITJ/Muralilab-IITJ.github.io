@@ -29,14 +29,13 @@
     <main>
         <h2 class="page-title">Our Team</h2>
         
-        
-
         <!-- Team Categories -->
         <div class="team-categories">
             <button class="category-btn active" data-category="all">All Members</button>
             <button class="category-btn" data-category="faculty">Faculty</button>
             <button class="category-btn" data-category="phd">PhD Students</button>
             <button class="category-btn" data-category="masters">Master's Students</button>
+            <button class="category-btn" data-category="undergraduate">Undergraduate Students</button>
             <button class="category-btn" data-category="staff">Research Staff</button>
             <button class="category-btn" data-category="alumni">Alumni</button>
         </div>
@@ -77,16 +76,19 @@
             const teamContainer = document.getElementById('team-container');
             const loadingElement = document.getElementById('team-loading');
             const errorElement = document.getElementById('team-error');
-            
+
             try {
+                console.log('Attempting to load team.json...');
                 // Fetch team data from JSON file
-                const response = await fetch('team.json');
+                const response = await fetch('./team.json');
+                console.log('Response status:', response.status);
                 
                 if (!response.ok) {
-                    throw new Error(`Failed to load team: ${response.status}`);
+                    throw new Error(`Failed to load team: ${response.status} ${response.statusText}`);
                 }
                 
                 const data = await response.json();
+                console.log('Data loaded:', data);
                 
                 if (!data.team || data.team.length === 0) {
                     teamContainer.innerHTML = '<div class="no-members">No team members to display.</div>';
@@ -100,16 +102,39 @@
                 
             } catch (error) {
                 console.error('Error loading team:', error);
+                console.error('Full error:', error.stack);
+                
+                // Show more detailed error
+                errorElement.innerHTML = `
+                    <p>Unable to load team information. Please check:</p>
+                    <ol>
+                        <li>Is team.json in the same directory as team.html?</li>
+                        <li>Does team.json have valid JSON format?</li>
+                        <li>Check browser console (F12) for more details.</li>
+                    </ol>
+                    <p>Error details: ${error.message}</p>
+                `;
                 loadingElement.style.display = 'none';
                 errorElement.style.display = 'block';
                 
-                // Fallback: show a static message
-                teamContainer.innerHTML = `
-                    <div class="error-message">
-                        <p>Unable to load team information. The team data file may be updating.</p>
-                        <p>Please check back in a few moments.</p>
-                    </div>
-                `;
+                // Fallback: show static data as backup
+                const fallbackData = {
+                    team: [{
+                        id: 1,
+                        name: "Ashish",
+                        position: "Junior Research Fellow (JRF)",
+                        category: "staff",
+                        bio: "Ashish completed his M.Tech in Biological Engineering from IIT Gandhinagar. From early on, he was fascinated by how the brain achieves remarkable feats that we often take for granted. During the COVID-19 lockdown, he came across lectures by Prof. Nancy Kanwisher, which addressed some of his questions about the brain, and eventually led him to study human motor behaviour. His research interests lie in motor control and sensorimotor neural oscillations. He is currently exploring the role of central and autonomic interaction during executive control of actions.",
+                        photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                        email: "ashish@iitj.ac.in",
+                        interests: ["Motor Control", "Sensorimotor Neural Oscillations", "Executive Control"],
+                        joinDate: "2023"
+                    }]
+                };
+                
+                console.log('Trying fallback data...');
+                displayTeam(fallbackData.team);
+                teamContainer.innerHTML += '<p style="color: #e74c3c; text-align: center; margin-top: 20px;"><i>Note: Using fallback data. Check console for JSON loading errors.</i></p>';
             }
         }
 
@@ -155,6 +180,17 @@
                 }
             });
         }
+        function getCategoryLabel(category) {
+            const labels = {
+                'faculty': 'Faculty',
+                'phd': 'PhD Student',
+                'masters': 'Master\'s Student',
+                'undergraduate': 'Undergraduate Student', // ADD THIS
+                'staff': 'Research Staff',
+                'alumni': 'Alumni'
+            };
+            return labels[category] || 'Team Member';
+        }
 
         // Category filtering
         function setupCategoryFilter() {
@@ -190,6 +226,8 @@
                 });
             }
         }
+
+        
 
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', () => {
