@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications | Murali Lab | IIT Jodhpur</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Murali Lab</a></h1>
+                <p>IIT Jodhpur</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="publications.html" class="active">Publications</a></li>
+                    <li><a href="join.html">Join</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <h2 class="page-title">Publications</h2>
+        
+        <div class="publications-intro">
+            <p>A selection of recent publications from our lab. Click on any paper title to view it in the journal.</p>
+        </div>
+
+        <!-- Filter Options -->
+        <div class="publication-filters">
+            <button class="filter-btn active" data-filter="all">All Publications</button>
+            <button class="filter-btn" data-filter="article">Articles</button>
+            <button class="filter-btn" data-filter="review">Reviews</button>
+            <button class="filter-btn" data-filter="conference">Conference Papers</button>
+            <button class="filter-btn" data-filter="preprint">Preprints</button>
+        </div>
+
+        <!-- Year Grouping -->
+        <div id="publications-container" class="publications-container">
+            <div id="publications-loading" class="loading">Loading publications...</div>
+        </div>
+        
+        <div id="publications-error" class="error-message" style="display: none;">
+            Unable to load publications. Please check back later.
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="copyright">
+                <p>© 2025 Murali Lab | IIT Jodhpur</p>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load publications from JSON file
+        async function loadPublications() {
+            const publicationsContainer = document.getElementById('publications-container');
+            const loadingElement = document.getElementById('publications-loading');
+            const errorElement = document.getElementById('publications-error');
+            
+            try {
+                console.log('Loading publications.json...');
+                const response = await fetch('./publications.json');
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to load publications: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (!data.publications || data.publications.length === 0) {
+                    publicationsContainer.innerHTML = '<div class="no-publications">No publications to display.</div>';
+                    loadingElement.style.display = 'none';
+                    return;
+                }
+                
+                // Display publications
+                displayPublications(data.publications);
+                loadingElement.style.display = 'none';
+                
+            } catch (error) {
+                console.error('Error loading publications:', error);
+                loadingElement.style.display = 'none';
+                errorElement.style.display = 'block';
+                
+                // Fallback data
+                const fallbackData = [
+                    {
+                        id: 1,
+                        year: "2024",
+                        title: "Cognitive control of movements and thoughts: Neural mechanisms and clinical implications",
+                        authors: "Muralidharan V, Smith J, Johnson A",
+                        journal: "Nature Reviews Neuroscience",
+                        link: "https://www.nature.com/articles/s41583-024-00817-9",
+                        type: "review"
+                    }
+                ];
+                
+                displayPublications(fallbackData);
+                publicationsContainer.innerHTML += '<p style="color: #e74c3c; text-align: center; margin-top: 20px;"><i>Note: Using fallback data. Check console for JSON loading errors.</i></p>';
+            }
+        }
+
+        // Function to display publications
+        function displayPublications(publications) {
+            const publicationsContainer = document.getElementById('publications-container');
+            
+            // Sort by year (newest first)
+            const sortedPublications = [...publications].sort((a, b) => b.year - a.year);
+            
+            // Group by year
+            const publicationsByYear = groupByYear(sortedPublications);
+            
+            let publicationsHTML = '';
+            
+            // Create HTML for each year
+            Object.keys(publicationsByYear).sort((a, b) => b - a).forEach(year => {
+                publicationsHTML += `
+                    <div class="year-group">
+                        <h3 class="year-header">${year}</h3>
+                        <div class="publications-list">
+                            ${publicationsByYear[year].map(pub => createPublicationHTML(pub)).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            publicationsContainer.innerHTML = publicationsHTML;
+            
+            // Setup filtering
+            setupPublicationFilters();
+        }
+
+        function groupByYear(publications) {
+            return publications.reduce((groups, pub) => {
+                const year = pub.year;
+                if (!groups[year]) {
+                    groups[year] = [];
+                }
+                groups[year].push(pub);
+                return groups;
+            }, {});
+        }
+
+        // In createPublicationHTML function:
+function createPublicationHTML(pub) {
+    const highlightedAuthors = highlightLabMembers(pub.authors);
+    const tagsHTML = pub.tags ? pub.tags.map(tag => 
+        `<span class="publication-tag" data-tag="${tag.toLowerCase()}">${tag}</span>`
+    ).join('') : '';
+    
+    return `
+        <div class="publication-item" data-type="${pub.type}">
+            <div class="publication-content">
+                <h4 class="publication-title">
+                    <a href="${pub.link}" target="_blank" rel="noopener">${pub.title}</a>
+                </h4>
+                <div class="publication-details">
+                    <div class="publication-authors">${highlightedAuthors}</div>
+                    <div class="publication-journal">${pub.journal} <span class="publication-year">(${pub.year})</span></div>
+                </div>
+                ${tagsHTML ? `<div class="publication-tags">${tagsHTML}</div>` : ''}
+                <div class="publication-type">${getPublicationTypeLabel(pub.type)}</div>
+            </div>
+        </div>
+    `;
+}
+
+        function highlightLabMembers(authors) {
+            // List of lab members to highlight (add more as needed)
+            const labMembers = [
+                "Muralidharan V",
+                "Muralidharan",
+                "Vignesh Muralidharan",
+                "Dr. Vignesh Muralidharan"
+
+                // add other members's name too
+            ];
+            
+            let highlighted = authors;
+            labMembers.forEach(member => {
+                const regex = new RegExp(member, 'gi');
+                highlighted = highlighted.replace(regex, `<strong>${member}</strong>`);
+            });
+            
+            return highlighted;
+        }
+
+        function getPublicationTypeLabel(type) {
+            const labels = {
+                'article': 'Journal Article',
+                'review': 'Review Article',
+                'conference': 'Conference Paper',
+                'preprint': 'Preprint',
+                'book': 'Book Chapter'
+            };
+            return labels[type] || type.charAt(0).toUpperCase() + type.slice(1);
+        }
+
+        // Publication filtering
+        function setupPublicationFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // Filter publications
+                    const filterType = button.dataset.filter;
+                    filterPublications(filterType);
+                });
+            });
+        }
+
+        function filterPublications(filterType) {
+            const allPublications = document.querySelectorAll('.publication-item');
+            const yearGroups = document.querySelectorAll('.year-group');
+            
+            if (filterType === 'all') {
+                allPublications.forEach(pub => {
+                    pub.style.display = 'block';
+                });
+                yearGroups.forEach(yearGroup => {
+                    yearGroup.style.display = 'block';
+                });
+            } else {
+                let visiblePublicationsCount = 0;
+                
+                allPublications.forEach(pub => {
+                    if (pub.dataset.type === filterType) {
+                        pub.style.display = 'block';
+                        visiblePublicationsCount++;
+                    } else {
+                        pub.style.display = 'none';
+                    }
+                });
+                
+                // Hide empty year groups
+                yearGroups.forEach(yearGroup => {
+                    const publicationsInYear = yearGroup.querySelectorAll('.publication-item');
+                    const visibleInYear = Array.from(publicationsInYear).filter(pub => 
+                        pub.style.display !== 'none'
+                    ).length;
+                    
+                    if (visibleInYear > 0) {
+                        yearGroup.style.display = 'block';
+                    } else {
+                        yearGroup.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', loadPublications);
+    </script>
+</body>
+</html>

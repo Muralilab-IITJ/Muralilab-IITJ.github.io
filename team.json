@@ -1,0 +1,145 @@
+{
+    "team": [
+        {
+            "id": 1,
+            "name": "Dr. Vignesh Muralidharan",
+            "position": "Principal Investigator",
+            "category": "faculty",
+            "bio": "Vignesh did his PhD from IIT Madras and postdoctoral training from University of California San Diego. His current research interests are in the area of inhibitory control of actions and thoughts, perception engineering, and brain computer interfaces to develop novel strategies for cognitive control. Besides that he enjoys watching sports, supports Liverpool Football Club, karaoke and chess.",
+            "photo": "images/vignesh_muralidharan.jpg",
+            "email": "vigneshmdharan[at]iitj[dot]ac[dot]in",
+            "interests": ["Behaviour", "cognitive Control", "Computational Neuroscience", "Brain-Computer Interfaces"],
+            "joinDate": "2023",
+            "links": {
+                "linkedin": "",
+                "scholar": "https://scholar.google.com/citations?user=9rViV7wAAAAJ&hl=en",
+                "orcid": "",
+                "github": "",
+                "twitter": "",
+                "website": ""
+            }
+        },
+        {
+            "id": 2,
+            "name": "Arpit Dilipbhai Shrimankar",
+            "position": "PhD Candidate",
+            "category": "phd",
+            "bio": "Arpit has completed his bachelor's and master's degrees in Biomedical Engineering. He is working on understanding the neuroscience of action control and attention modulation, aiming to develop computational models investigating action control. In his free time, he enjoys learning about spirituality-meditation, and spending time in nature with friends and family. (Joint Supervision with Dr. Dipanjan Roy)",
+            "photo": "images/arpit.jpg",
+            "email": "p23ai0004[at]iitj[dot]ac[dot]in",
+            "interests": ["Neuroscience of Action Control", "Computational Neuroscience"],
+            "joinDate": "2023",
+            "links": {
+                "linkedin": "https://linkedin.com/in/arpitshrimankar",
+                "scholar": "https://scholar.google.com/citations?user=XYZ789",
+                "github": "https://github.com/arpitshri"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Prashansa Tripathi",
+            "position": "PhD Candidate",
+            "category": "phd",
+            "bio": "Prashansa has done her Bachelor's and Master's in Forensics. Her current research tries to understand the neuroscience of internal cognitive states like Mind Wandering and Intrusive thoughts. Her interests lie in understanding the mechanisms of inhibitory control over thoughts and translating this knowledge into real-world applications. Beyond academics, she enjoys reading fiction and engaging in conversations on consciousness, meditation, and personal growth",
+            "photo": "images/prashansa.jpeg",
+            "email": "p25ai0006[at]iitj[dot]ac[dot]in",
+            "interests": ["Mind-wandering", "Inhibitory control of thoughts"],
+            "joinDate": "2025",
+            "links": {
+                "linkedin": "https://linkedin.com/in/prashansatripathi",
+                "scholar": "https://scholar.google.com/citations?user=DEF456"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Vivek Khari",
+            "position": "PhD Candidate",
+            "category": "phd",
+            "bio": "Vivek has an Integrated Master's degree in Statistics and his current research lies in cognitive systems and psychological conditions with a focus on understanding intrusive thoughts which are unwanted, recurrent, involuntary thoughts often linked with dysregulated neural processes in psychological disorders. He aims to bridge his fascination for neuroscience with Statistics and AI to advance the understanding of complex cognitive processes. Beside these intrusive thoughts, he thinks of his next badminton match, a refreshing run, or the thrill of a traditional sports or esports match. (Joint Supervision with Dr. Romi Banerjee, CSE)",
+            "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "email": "d24csa007[at]iitj[dot]ac[dot]in",
+            "interests": ["Inhibitory Control", "Perception Engineering", "Brain-Computer Interfaces"],
+            "joinDate": "2024",
+            "links": {
+                "linkedin": "https://linkedin.com/in/vivekkhari",
+                "scholar": "https://scholar.google.com/citations?user=GHI789",
+                "github": "https://github.com/vivekkhari"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Md Shaheen Perwez",
+            "position": "Master's Student (M.S.R.)",
+            "category": "masters",
+            "bio": "Shaheen has done his B.Tech in Electrical Engineering. His research interest lies in exploring Brain Computer Interfaces. He is currently working on BCI based novel sixth finger as part of his MS project. Apart from neuroscience and BCI he loves watching football specially Liverpool FC matches. Exploring new skills is also his one of the hobbies. (Joint Supervision with Dr. Bhivraj Suthar)",
+            "photo": "images/shaheen.jpg",
+            "email": "r23ab0004[at]iitj[dot]ac[dot]in",
+            "interests": ["Brain Computer Interface", "Robotics", "Machine Learning"],
+            "joinDate": "2023",
+            "links": {
+                "linkedin": "https://linkedin.com/in/shaheenperwez",
+                "github": "https://github.com/shaheenperwez"
+            }
+        },
+        {
+            "id": 6,
+            "name": "Mihir Tomar",
+            "position": "Master's Student (M.Tech AR/VR)",
+            "category": "masters",
+            "bio": "Mihir has completed his bachelors in Computer Science and Engineering. His current research focuses on integrating BCIs with Virtual Reality focusing on modulating sensorimotor dynamics using assisted action completion mechanism. He has a hobby of writing and watching stand-up poetry and also watching Anime/Movies/Sitcoms. When away from the screen, one may find him playing Badminton or Volleyball.",
+            "photo": "images/mihir.jpeg",
+            "email": "m24air006[at]iitj[dot]ac[dot]in",
+            "interests": ["BCI-VR integration", "Action Completion"],
+            "joinDate": "2024",
+            "links": {
+                "linkedin": "https://linkedin.com/in/mihirtomar",
+                "github": "https://github.com/mihirtomar"
+            }
+        },
+        {
+            "id": 7,
+            "name": "Shreya Deb",
+            "position": "Master's Student (M.S.R.)",
+            "category": "masters",
+            "bio": "Shreya has a B.Tech degree in Electrical and Electronics Engineering. Her current research, focused on Multisensory integration and Speech perception can be traced to her fascination for AI and understanding how multiple brain areas harmonize with each other to make sense of the world we live in and perceive. Apart from this, she also holds a keen interest in SNN, BCI & affect of climate change in neurobiology of humans. Additionally, Shreya also spends her time as a member of WWN-IBRO and NCWG. When not occupied by neuroscience, her brain seeks the company of stars, music and Kdramas. If she's not lost in the pages of a good book, you may find her writing poems as her way to wind down. (Joint Supervision with Dr. Dipanjan Roy)",
+            "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "email": "r23ab0002[at]iitj[dot]ac[dot]in",
+            "interests": ["Inhibitory Control", "Perception Engineering", "Brain-Computer Interfaces"],
+            "joinDate": "2023",
+            "links": {
+                "linkedin": "https://linkedin.com/in/shreyadeb",
+                "scholar": "https://scholar.google.com/citations?user=JKL012"
+            }
+        },
+        {
+            "id": 8,
+            "name": "Pranaya Jayprakash",
+            "position": "B.Tech Student",
+            "category": "undergraduate",
+            "bio": "Pranaya is a B.Tech student at IIT Jodhpur.",
+            "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "email": "b22ee086@iitj.ac.in",
+            "interests": ["Motor Control", "Sensorimotor Neural Oscillations", "Executive Control"],
+            "joinDate": "2025",
+            "links": {
+                "linkedin": "https://linkedin.com/in/pranayajp"
+            }
+        },
+        {
+            "id": 9,
+            "name": "Ashish V",
+            "position": "Junior Research Fellow (JRF)",
+            "category": "staff",
+            "bio": "Ashish completed his M.Tech in Biological Engineering from IIT Gandhinagar. From early on, he was fascinated by how the brain achieves remarkable feats that we often take for granted. During the COVID-19 lockdown, he came across lectures by Prof. Nancy Kanwisher, which addressed some of his questions about the brain, and eventually led him to study human motor behaviour. His research interests lie in motor control and sensorimotor neural oscillations. He is currently exploring the role of central and autonomic interaction during executive control of actions.",
+            "photo": "images/ashish.jpg",
+            "email": "ashish[at]iitj[dot]ac[dot]in",
+            "interests": ["Motor Control", "Cognitive Control", "Neural oscillations"],
+            "joinDate": "2025",
+            "links": {
+                "linkedin": "https://linkedin.com/in/ashishv",
+                "scholar": "https://scholar.google.com/citations?user=MNO345",
+                "github": "https://github.com/ashishv-iitj"
+            }
+        }
+    ]
+}
