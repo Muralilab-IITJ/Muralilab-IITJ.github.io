@@ -50,7 +50,7 @@
             "position": "Master's Student (M.S.R.)",
             "category": "masters",
             "bio": "Shaheen has done his B.Tech in Electrical Engineering. His research interest lies in exploring Brain Computer Interfaces. He is currently working on BCI based novel sixth finger as part of his MS project. Apart from neuroscience and BCI he loves watching football specially Liverpool FC matches. Exploring new skills is also his one of the hobbies. (Joint Supervision with Dr. Bhivraj Suthar)",
-            "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "photo": "images/shaheen.jpg",
             "email": "r23ab0004[at]iitj[dot]ac[dot]in",
             "interests": ["Inhibitory Control", "Perception Engineering", "Brain-Computer Interfaces"],
             "joinDate": "2023"
@@ -100,4 +100,5 @@
             "joinDate": "2025"
         }
     ]
+
 }
