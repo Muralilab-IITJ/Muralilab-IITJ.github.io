@@ -1,34 +1,38 @@
 {
   "publications": [
-    
+
+    {
+      "id": 1,
+      "year": "2023",
+      "title": "Transient oscillations as computations for cognition: Analysis, modeling and function",
+      "authors": "Schmidt R, Rose J, Muralidharan V",
+      "journal": "Current Opinion in Neurobiology",
+      "link": "https://doi.org/10.1016/j.conb.2023.102796",
+      "type": "review",
+      "tags": ["Transient Oscillations"]
+    },
     {
       "id": 2,
+      "year": "2023",
+      "title": "Failing to attend versus failing to stop: Single-trial decomposition of action-stopping in the stop signal task",
+      "authors": "Hannah R, Muralidharan V, Aron AR",
+      "journal": "Behavior Research Methods",
+      "link": "https://doi.org/10.3758/s13428-022-02008-x",
+      "type": "journal",
+      "tags": ["Action-stopping" , "EEG"]
+    },
+    {
+      "id": 3,
       "year": "2023",
       "title": "Two modes of midfrontal theta suggest a role in conflict and error processing",
       "authors": "Muralidharan V, Aron AR, Cohen MX, Schmidt R",
       "journal": "NeuroImage",
       "link": "https://doi.org/10.1016/j.neuroimage.2023.120107",
       "type": "journal",
-      "tags": ["Neurofeedback", "Neural Oscillations", "Inhibitory Control", "EEG"]
+      "tags": ["Conflict control", "EEG"]
     },
-    {
-      "id": 3,
-      "year": "2023",
-      "title": "Transient oscillations as computations for cognition: Analysis, modeling and function",
-      "authors": "Schmidt R, Rose J, Muralidharan V",
-      "journal": "Current Opinion in Neurobiology",
-      "link": "https://doi.org/10.1016/j.conb.2023.102796",
-      "type": "journal"
-    },
-    {
-      "id": 4,
-      "year": "2023",
-      "title": "Failing to attend versus failing to stop: Single-trial decomposition of action-stopping in the stop signal task",
-      "authors": "Hannah R, Muralidharan V, Aron AR",
-      "journal": "Behavior Research Methods",
-      "link": "https://doi.org/10.3758/s13428-022-02008-x",
-      "type": "journal"
-    },
+    
+    
     {
       "id": 5,
       "year": "2022",
@@ -36,7 +40,8 @@
       "authors": "Muralidharan V, Aron AR, Schmidt R",
       "journal": "NeuroImage",
       "link": "https://doi.org/10.1016/j.neuroimage.2022.119145",
-      "type": "journal"
+      "type": "journal",
+      "tags": ["Action-stopping" , "EEG"]
     },
     {
       "id": 6,

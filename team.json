@@ -61,7 +61,7 @@
             "position": "Master's Student (M.Tech AR/VR)",
             "category": "masters",
             "bio": "Mihir has completed his bachelors in Computer Science and Engineering. His current research focuses on integrating BCIs with Virtual Reality focusing on modulating sensorimotor dynamics using assisted action completion mechanism. He has a hobby of writing and watching stand-up poetry and also watching Anime/Movies/Sitcoms. When away from the screen, one may find him playing Badminton or Volleyball.",
-            "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "photo": "images/mihir.jpeg",
             "email": "m24air006[at]iitj[dot]ac[dot]in",
             "interests": ["BCI-VR integration", "Action Completion" ],
             "joinDate": "2024"
