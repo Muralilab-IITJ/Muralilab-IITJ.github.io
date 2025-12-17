@@ -17,7 +17,7 @@
             "position": "PhD Candidate",
             "category": "phd",
             "bio": "Arpit has completed his bachelor's and master's degrees in Biomedical Engineering. He is working on understanding the neuroscience of action control and attention modulation, aiming to develop computational models investigating action control. In his free time, he enjoys learning about spirituality-meditation, and spending time in nature with friends and family. (Joint Supervision with Dr. Dipanjan Roy)",
-            "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "photo": "images/arpit.jpg",
             "email": "p23ai0004[at]iitj[dot]ac[dot]in",
             "interests": ["Inhibitory Control", "Perception Engineering", "Brain-Computer Interfaces"],
             "joinDate": "2023"
@@ -60,7 +60,7 @@
             "name": "Mihir Tomar",
             "position": "Master's Student (M.Tech AR/VR)",
             "category": "masters",
-            "bio": "Mihir has completed his bachelors in Computer Science and Engineering. His current research focuses on integrating BCIs with Virtual Reality focusing on action completion based rehabilitation for stroke patients. He has a hobby of writing and watching stand-up poetry and also watching Anime/Movies/Sitcoms. When away from the screen, one may find him playing Badminton or Volleyball.",
+            "bio": "Mihir has completed his bachelors in Computer Science and Engineering. His current research focuses on integrating BCIs with Virtual Reality focusing on modulating sensorimotor dynamics using assisted action completion mechanism. He has a hobby of writing and watching stand-up poetry and also watching Anime/Movies/Sitcoms. When away from the screen, one may find him playing Badminton or Volleyball.",
             "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
             "email": "m24air006[at]iitj[dot]ac[dot]in",
             "interests": ["Inhibitory Control", "Perception Engineering", "Brain-Computer Interfaces"],
