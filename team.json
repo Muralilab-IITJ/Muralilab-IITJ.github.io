@@ -19,7 +19,7 @@
             "bio": "Arpit has completed his bachelor's and master's degrees in Biomedical Engineering. He is working on understanding the neuroscience of action control and attention modulation, aiming to develop computational models investigating action control. In his free time, he enjoys learning about spirituality-meditation, and spending time in nature with friends and family. (Joint Supervision with Dr. Dipanjan Roy)",
             "photo": "images/arpit.jpg",
             "email": "p23ai0004[at]iitj[dot]ac[dot]in",
-            "interests": ["Inhibitory Control", "Perception Engineering", "Brain-Computer Interfaces"],
+            "interests": ["Neuroscience of Action Control", "Computational Neuroscience"],
             "joinDate": "2023"
         },
         {
@@ -52,7 +52,7 @@
             "bio": "Shaheen has done his B.Tech in Electrical Engineering. His research interest lies in exploring Brain Computer Interfaces. He is currently working on BCI based novel sixth finger as part of his MS project. Apart from neuroscience and BCI he loves watching football specially Liverpool FC matches. Exploring new skills is also his one of the hobbies. (Joint Supervision with Dr. Bhivraj Suthar)",
             "photo": "images/shaheen.jpg",
             "email": "r23ab0004[at]iitj[dot]ac[dot]in",
-            "interests": ["Inhibitory Control", "Perception Engineering", "Brain-Computer Interfaces"],
+            "interests": ["Brain Computer Interface", "Robotics", "Machine Learning"],
             "joinDate": "2023"
         },
         {
@@ -63,7 +63,7 @@
             "bio": "Mihir has completed his bachelors in Computer Science and Engineering. His current research focuses on integrating BCIs with Virtual Reality focusing on modulating sensorimotor dynamics using assisted action completion mechanism. He has a hobby of writing and watching stand-up poetry and also watching Anime/Movies/Sitcoms. When away from the screen, one may find him playing Badminton or Volleyball.",
             "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
             "email": "m24air006[at]iitj[dot]ac[dot]in",
-            "interests": ["Inhibitory Control", "Perception Engineering", "Brain-Computer Interfaces"],
+            "interests": ["BCI-VR integration", "Action Completion" ],
             "joinDate": "2024"
         },
         {

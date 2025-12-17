@@ -886,6 +886,50 @@ main {
     color: #e74c3c;
 }
 
+.publication-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.publication-tag {
+    background-color: #e8f4fc;
+    color: #2980b9;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.publication-tag:hover {
+    background-color: #d6eaf8;
+    transform: translateY(-1px);
+}
+
+/* Color code tags by research area */
+.publication-tag[data-tag*="inhibitory"] {
+    background-color: #e8f6f3;
+    color: #27ae60;
+}
+
+.publication-tag[data-tag*="oscillation"] {
+    background-color: #f4ecf7;
+    color: #8e44ad;
+}
+
+.publication-tag[data-tag*="computational"] {
+    background-color: #fef9e7;
+    color: #f39c12;
+}
+
+.publication-tag[data-tag*="clinical"] {
+    background-color: #fdedec;
+    color: #e74c3c;
+}
+
 /* No publications message */
 .no-publications {
     text-align: center;

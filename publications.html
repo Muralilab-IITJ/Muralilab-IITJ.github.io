@@ -156,25 +156,29 @@
             }, {});
         }
 
-        function createPublicationHTML(pub) {
-            // Highlight lab members in authors list
-            const highlightedAuthors = highlightLabMembers(pub.authors);
-            
-            return `
-                <div class="publication-item" data-type="${pub.type}">
-                    <div class="publication-content">
-                        <h4 class="publication-title">
-                            <a href="${pub.link}" target="_blank" rel="noopener">${pub.title}</a>
-                        </h4>
-                        <div class="publication-details">
-                            <div class="publication-authors">${highlightedAuthors}</div>
-                            <div class="publication-journal">${pub.journal} <span class="publication-year">(${pub.year})</span></div>
-                        </div>
-                        <div class="publication-type">${getPublicationTypeLabel(pub.type)}</div>
-                    </div>
+        // In createPublicationHTML function:
+function createPublicationHTML(pub) {
+    const highlightedAuthors = highlightLabMembers(pub.authors);
+    const tagsHTML = pub.tags ? pub.tags.map(tag => 
+        `<span class="publication-tag" data-tag="${tag.toLowerCase()}">${tag}</span>`
+    ).join('') : '';
+    
+    return `
+        <div class="publication-item" data-type="${pub.type}">
+            <div class="publication-content">
+                <h4 class="publication-title">
+                    <a href="${pub.link}" target="_blank" rel="noopener">${pub.title}</a>
+                </h4>
+                <div class="publication-details">
+                    <div class="publication-authors">${highlightedAuthors}</div>
+                    <div class="publication-journal">${pub.journal} <span class="publication-year">(${pub.year})</span></div>
                 </div>
-            `;
-        }
+                ${tagsHTML ? `<div class="publication-tags">${tagsHTML}</div>` : ''}
+                <div class="publication-type">${getPublicationTypeLabel(pub.type)}</div>
+            </div>
+        </div>
+    `;
+}
 
         function highlightLabMembers(authors) {
             // List of lab members to highlight (add more as needed)
