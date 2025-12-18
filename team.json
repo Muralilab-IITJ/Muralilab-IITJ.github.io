@@ -130,10 +130,10 @@
             "name": "Ashish V",
             "position": "Junior Research Fellow (JRF)",
             "category": "staff",
-            "bio": "Ashish completed his M.Tech in Biological Engineering from IIT Gandhinagar. From early on, he was fascinated by how the brain achieves remarkable feats that we often take for granted. During the COVID-19 lockdown, he came across lectures by Prof. Nancy Kanwisher, which addressed some of his questions about the brain, and eventually led him to study human motor behaviour. His research interests lie in motor control and sensorimotor neural oscillations. He is currently exploring the role of central and autonomic interaction during executive control of actions.",
+            "bio": "Ashish completed his M.Tech in Biological Engineering from IIT Gandhinagar. He is currently exploring the role of central and autonomic interaction during executive control of actions.",
             "photo": "images/ashish.jpg",
             "email": "ashish[at]iitj[dot]ac[dot]in",
-            "interests": ["Motor Control", "Cognitive Control", "Neural oscillations"],
+            "interests": ["Cognitive Control", "Consciousness","Motor Control"],
             "joinDate": "2025",
             "links": {
                 "linkedin": "https://linkedin.com/in/ashishv",
