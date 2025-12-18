@@ -30,9 +30,9 @@
             "interests": ["Neuroscience of Action Control", "Computational Neuroscience"],
             "joinDate": "2023",
             "links": {
-                "linkedin": "https://linkedin.com/in/arpitshrimankar",
-                "scholar": "https://scholar.google.com/citations?user=XYZ789",
-                "github": "https://github.com/arpitshri"
+                "linkedin": "https://www.linkedin.com/in/arpit-shrimankar-0376a4127/",
+                "scholar": "",
+                "github": ""
             }
         },
         {
@@ -46,8 +46,8 @@
             "interests": ["Mind-wandering", "Inhibitory control of thoughts"],
             "joinDate": "2025",
             "links": {
-                "linkedin": "https://linkedin.com/in/prashansatripathi",
-                "scholar": "https://scholar.google.com/citations?user=DEF456"
+                "linkedin": "https://www.linkedin.com/in/prashansatripathi",
+                "scholar": ""
             }
         },
         {
@@ -61,9 +61,9 @@
             "interests": ["Inhibitory Control", "Perception Engineering", "Brain-Computer Interfaces"],
             "joinDate": "2024",
             "links": {
-                "linkedin": "https://linkedin.com/in/vivekkhari",
-                "scholar": "https://scholar.google.com/citations?user=GHI789",
-                "github": "https://github.com/vivekkhari"
+                "linkedin": "",
+                "scholar": "",
+                "github": ""
             }
         },
         {
@@ -77,8 +77,8 @@
             "interests": ["Brain Computer Interface", "Robotics", "Machine Learning"],
             "joinDate": "2023",
             "links": {
-                "linkedin": "https://linkedin.com/in/shaheenperwez",
-                "github": "https://github.com/shaheenperwez"
+                "linkedin": "http://www.linkedin.com/in/md-shaheen-perwez-088a24104",
+                "github": ""
             }
         },
         {
@@ -92,8 +92,8 @@
             "interests": ["BCI-VR integration", "Action Completion"],
             "joinDate": "2024",
             "links": {
-                "linkedin": "https://linkedin.com/in/mihirtomar",
-                "github": "https://github.com/mihirtomar"
+                "linkedin": "https://www.linkedin.com/in/mihir-tomar/",
+                "github": ""
             }
         },
         {
@@ -107,8 +107,8 @@
             "interests": ["Inhibitory Control", "Perception Engineering", "Brain-Computer Interfaces"],
             "joinDate": "2023",
             "links": {
-                "linkedin": "https://linkedin.com/in/shreyadeb",
-                "scholar": "https://scholar.google.com/citations?user=JKL012"
+                "linkedin": "",
+                "scholar": ""
             }
         },
         {
@@ -119,10 +119,10 @@
             "bio": "Pranaya is a B.Tech student at IIT Jodhpur.",
             "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
             "email": "b22ee086@iitj.ac.in",
-            "interests": ["Motor Control", "Sensorimotor Neural Oscillations", "Executive Control"],
+            "interests": ["Cognitove Control", "Sensorimotor Neural Oscillations", "Executive Control"],
             "joinDate": "2025",
             "links": {
-                "linkedin": "https://linkedin.com/in/pranayajp"
+                "linkedin": ""
             }
         },
         {
@@ -137,8 +137,8 @@
             "joinDate": "2025",
             "links": {
                 "linkedin": "https://linkedin.com/in/ashishv",
-                "scholar": "https://scholar.google.com/citations?user=MNO345",
-                "github": "https://github.com/ashishv-iitj"
+                "scholar": "",
+                "github": ""
             }
         }
     ]

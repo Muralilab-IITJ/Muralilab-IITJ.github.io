@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching | Murali Lab | IIT Jodhpur</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Murali Lab</a></h1>
+                <p>IIT Jodhpur</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="teaching.html" class="active">Teaching</a></li>
+                 <!--   <li><a href="join.html">Join</a></li>-->
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <h2 class="page-title">Teaching</h2>
+        
+        
+
+        <!-- Teaching Terms Container -->
+        <div id="teaching-container" class="teaching-container">
+            <div id="teaching-loading" class="loading">Loading teaching information...</div>
+        </div>
+        
+        <div id="teaching-error" class="error-message" style="display: none;">
+            Unable to load teaching information. Please check back later.
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="copyright">
+                <p>© 2025 Murali Lab | IIT Jodhpur</p>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load teaching data from JSON file
+        async function loadTeaching() {
+            const teachingContainer = document.getElementById('teaching-container');
+            const loadingElement = document.getElementById('teaching-loading');
+            const errorElement = document.getElementById('teaching-error');
+            
+            try {
+                console.log('Loading teaching.json...');
+                const response = await fetch('./teaching.json');
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to load teaching: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (!data.teaching || data.teaching.length === 0) {
+                    teachingContainer.innerHTML = '<div class="no-teaching">No teaching information to display.</div>';
+                    loadingElement.style.display = 'none';
+                    return;
+                }
+                
+                // Display teaching information
+                displayTeaching(data.teaching);
+                loadingElement.style.display = 'none';
+                
+            } catch (error) {
+                console.error('Error loading teaching:', error);
+                loadingElement.style.display = 'none';
+                errorElement.style.display = 'block';
+                
+                // Fallback data
+                const fallbackData = [
+                    {
+                        "year": "2025-2026",
+                        "term": "Fall",
+                        "courses": [
+                            {
+                                "id": 1,
+                                "title": "Sensation and Perception",
+                                "code": "AIL7240",
+                                "role": "Instructor"
+                            }
+                        ]
+                    }
+                ];
+                
+                displayTeaching(fallbackData);
+                teachingContainer.innerHTML += '<p style="color: #e74c3c; text-align: center; margin-top: 20px;"><i>Note: Using fallback data. Check console for JSON loading errors.</i></p>';
+            }
+        }
+
+        // Function to display teaching information
+        function displayTeaching(teachingData) {
+            const teachingContainer = document.getElementById('teaching-container');
+            
+            // Sort by year and term (newest first)
+            const sortedTeaching = sortTeachingData(teachingData);
+            
+            let teachingHTML = '';
+            
+            // Create HTML for each term
+            sortedTeaching.forEach(term => {
+                teachingHTML += createTermHTML(term);
+            });
+            
+            teachingContainer.innerHTML = teachingHTML;
+        }
+
+        function sortTeachingData(teachingData) {
+            // Create a sortable value for each term
+            const termOrder = {
+                'Fall': 1,
+                'Spring': 2,
+                'Summer': 3
+            };
+            
+            return [...teachingData].sort((a, b) => {
+                // Sort by year (newest first)
+                const yearA = a.year.split('-')[0];
+                const yearB = b.year.split('-')[0];
+                
+                if (yearB !== yearA) {
+                    return yearB - yearA;
+                }
+                
+                // If same year, sort by term order
+                return termOrder[a.term] - termOrder[b.term];
+            });
+        }
+
+        function createTermHTML(term) {
+            const termTitle = `${term.term} Term (${term.year})`;
+            
+            const coursesHTML = term.courses.map(course => {
+                return createCourseHTML(course);
+            }).join('');
+            
+            return `
+                <div class="teaching-term">
+                    <h3 class="term-header">${termTitle}</h3>
+                    <div class="courses-list">
+                        ${coursesHTML}
+                    </div>
+                </div>
+            `;
+        }
+
+        function createCourseHTML(course) {
+            const programInfo = course.program ? `<span class="course-program">${course.program}</span>` : '';
+            const codeInfo = course.code ? `<span class="course-code">${course.code}</span>` : '';
+            
+            return `
+                <div class="course-item" data-role="${course.role.toLowerCase().replace(' ', '-')}">
+                    <div class="course-content">
+                        <h4 class="course-title">${course.title}</h4>
+                        <div class="course-details">
+                            <div class="course-meta">
+                                ${codeInfo}
+                                ${programInfo}
+                            </div>
+                            <div class="course-role">${course.role}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', loadTeaching);
+    </script>
+</body>
+</html>

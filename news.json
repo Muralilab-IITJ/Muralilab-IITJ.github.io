@@ -6,7 +6,14 @@
             "date": "2025-08-18",
             "content": "Ashish V joined the lab as a Project Assistant",
             "type": "hire",
-            "highlightedNames": ["Vridhi Rohira"]
+            "highlightedNames": ["Ashish V"]
+        },
+        {
+            "id": 2,
+            "date": "2025-12-12",
+            "content": "Shreya, Arpit and Shaheen presented posters at the 12th ACCS held ad CBCS, Allahabad",
+            "type": "hire",
+            "highlightedNames": ["Shreya", "Arpit",  "Shaheen"]
         }
     ]
 }

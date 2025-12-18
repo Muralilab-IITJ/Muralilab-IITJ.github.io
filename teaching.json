@@ -1,0 +1,140 @@
+{
+    "teaching": [
+        {
+            "year": "2025-2026",
+            "term": "Fall",
+            "courses": [
+                {
+                    "id": 1,
+                    "title": "Sensation and Perception",
+                    "code": "AIL7240",
+                    "role": "Instructor"
+                }
+            ]
+        },
+        {
+            "year": "2024-2025",
+            "term": "Summer",
+            "courses": [
+                {
+                    "id": 2,
+                    "title": "Advanced Artificial Intelligence",
+                    "code": "CSL7580",
+                    "program": "PGD in AI",
+                    "role": "Co-instructor"
+                }
+            ]
+        },
+        {
+            "year": "2024-2025",
+            "term": "Spring",
+            "courses": [
+                {
+                    "id": 3,
+                    "title": "Introduction to Brain-Computer Interfaces",
+                    "code": "AIL7130",
+                    "role": "Instructor"
+                },
+                {
+                    "id": 4,
+                    "title": "Principles of Neural Design",
+                    "code": "AIL4130",
+                    "role": "Instructor"
+                },
+                {
+                    "id": 5,
+                    "title": "Social Connect II",
+                    "code": "",
+                    "role": "Co-instructor"
+                }
+            ]
+        },
+        {
+            "year": "2024-2025",
+            "term": "Fall",
+            "courses": [
+                {
+                    "id": 6,
+                    "title": "Methods and Tools of Science of Intelligence",
+                    "code": "AIP4010",
+                    "role": "Instructor and Coordinator"
+                },
+                {
+                    "id": 7,
+                    "title": "Sensation and Perception",
+                    "code": "AIL7240",
+                    "role": "Co-instructor"
+                },
+                {
+                    "id": 8,
+                    "title": "Deep Learning",
+                    "code": "CSL7590",
+                    "program": "Executive M.Tech AI",
+                    "role": "Co-instructor"
+                },
+                {
+                    "id": 9,
+                    "title": "Social Connect I",
+                    "code": "",
+                    "role": "Co-instructor"
+                }
+            ]
+        },
+        {
+            "year": "2023-2024",
+            "term": "Summer",
+            "courses": [
+                {
+                    "id": 10,
+                    "title": "Advanced Artificial Intelligence",
+                    "code": "CSL7580",
+                    "program": "Executive M.Tech DCS",
+                    "role": "Co-instructor"
+                }
+            ]
+        },
+        {
+            "year": "2023-2024",
+            "term": "Spring",
+            "courses": [
+                {
+                    "id": 11,
+                    "title": "Introduction to Brain-Computer Interfaces",
+                    "code": "AIL7130",
+                    "role": "Instructor"
+                },
+                {
+                    "id": 12,
+                    "title": "Principles of Neural Design",
+                    "code": "AIL4130",
+                    "role": "Co-instructor"
+                }
+            ]
+        },
+        {
+            "year": "2023-2024",
+            "term": "Fall",
+            "courses": [
+                {
+                    "id": 13,
+                    "title": "Methods and Tools of Science of Intelligence",
+                    "code": "AIP4010",
+                    "role": "Instructor and Coordinator"
+                }
+            ]
+        },
+        {
+            "year": "2022-2023",
+            "term": "Summer",
+            "courses": [
+                {
+                    "id": 14,
+                    "title": "Advanced Artificial Intelligence",
+                    "code": "CSL7580",
+                    "program": "Executive M.Tech DCS",
+                    "role": "Co-instructor"
+                }
+            ]
+        }
+    ]
+}

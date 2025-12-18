@@ -1085,6 +1085,200 @@ main {
     }
 }
 
+/* ===== TEACHING PAGE STYLES ===== */
+.teaching-intro {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #3498db;
+}
+
+.teaching-intro p {
+    color: #5d6d7e;
+    line-height: 1.7;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* Teaching Container */
+.teaching-container {
+    margin-bottom: 60px;
+}
+
+.teaching-term {
+    margin-bottom: 40px;
+    animation: fadeIn 0.5s ease;
+}
+
+.term-header {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ecf0f1;
+    position: relative;
+}
+
+.term-header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background-color: #3498db;
+}
+
+.courses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Course Item */
+.course-item {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid #3498db;
+}
+
+.course-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Role-specific border colors */
+.course-item[data-role="instructor"] {
+    border-left-color: #3498db;
+}
+
+.course-item[data-role="co-instructor"] {
+    border-left-color: #9b59b6;
+}
+
+.course-item[data-role="instructor-and-coordinator"] {
+    border-left-color: #e74c3c;
+}
+
+.course-content {
+    position: relative;
+}
+
+.course-title {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+}
+
+.course-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.course-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.course-code {
+    background-color: #e8f4fc;
+    color: #2980b9;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+}
+
+.course-program {
+    background-color: #f4ecf7;
+    color: #8e44ad;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.course-role {
+    background-color: #ecf0f1;
+    color: #5d6d7e;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Role-specific role badges */
+.course-item[data-role="instructor"] .course-role {
+    background-color: #d6eaf8;
+    color: #21618c;
+}
+
+.course-item[data-role="co-instructor"] .course-role {
+    background-color: #e8daef;
+    color: #76448a;
+}
+
+.course-item[data-role="instructor-and-coordinator"] .course-role {
+    background-color: #fadbd8;
+    color: #922b21;
+}
+
+/* No teaching message */
+.no-teaching {
+    text-align: center;
+    padding: 60px 20px;
+    color: #95a5a6;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .term-header {
+        font-size: 1.4rem;
+    }
+    
+    .course-item {
+        padding: 15px;
+    }
+    
+    .course-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .course-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .course-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .teaching-intro {
+        padding: 20px;
+    }
+}
+
 /* Footer styles */
 footer {
     background-color: #2c3e50;
