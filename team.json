@@ -56,7 +56,7 @@
             "position": "PhD Candidate",
             "category": "phd",
             "bio": "Vivek has an Integrated Master's degree in Statistics and his current research lies in cognitive systems and psychological conditions with a focus on understanding intrusive thoughts which are unwanted, recurrent, involuntary thoughts often linked with dysregulated neural processes in psychological disorders. He aims to bridge his fascination for neuroscience with Statistics and AI to advance the understanding of complex cognitive processes. Beside these intrusive thoughts, he thinks of his next badminton match, a refreshing run, or the thrill of a traditional sports or esports match. (Joint Supervision with Dr. Romi Banerjee, CSE)",
-            "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "photo": "",
             "email": "d24csa007[at]iitj[dot]ac[dot]in",
             "interests": ["Inhibitory Control", "Perception Engineering", "Brain-Computer Interfaces"],
             "joinDate": "2024",
@@ -102,12 +102,12 @@
             "position": "Master's Student (M.S.R.)",
             "category": "masters",
             "bio": "Shreya has a B.Tech degree in Electrical and Electronics Engineering. Her current research, focused on Multisensory integration and Speech perception can be traced to her fascination for AI and understanding how multiple brain areas harmonize with each other to make sense of the world we live in and perceive. Apart from this, she also holds a keen interest in SNN, BCI & affect of climate change in neurobiology of humans. Additionally, Shreya also spends her time as a member of WWN-IBRO and NCWG. When not occupied by neuroscience, her brain seeks the company of stars, music and Kdramas. If she's not lost in the pages of a good book, you may find her writing poems as her way to wind down. (Joint Supervision with Dr. Dipanjan Roy)",
-            "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "photo": "images/shreya.jpg",
             "email": "r23ab0002[at]iitj[dot]ac[dot]in",
-            "interests": ["Inhibitory Control", "Perception Engineering", "Brain-Computer Interfaces"],
+            "interests": ["Multisensory perception", "tACS", "Female neuroendocrinology", "Environmental Neuroscience", "BCI "],
             "joinDate": "2023",
             "links": {
-                "linkedin": "",
+                "linkedin": "https://www.linkedin.com/in/shreyadeb19",
                 "scholar": ""
             }
         },
@@ -117,7 +117,7 @@
             "position": "B.Tech Student",
             "category": "undergraduate",
             "bio": "Pranaya is a B.Tech student at IIT Jodhpur.",
-            "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "photo": "",
             "email": "b22ee086@iitj.ac.in",
             "interests": ["Cognitove Control", "Sensorimotor Neural Oscillations", "Executive Control"],
             "joinDate": "2025",
