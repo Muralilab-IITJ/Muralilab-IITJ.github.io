@@ -5,12 +5,169 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Murali Lab | IIT Jodhpur</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Home-specific overrides to remove the "boxy" look */
+        
+        /* 1. Hero Section - Pure Typography */
+        .hero-section {
+            padding: 4rem 0 6rem;
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--color-gray-900);
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--color-gray-700);
+            line-height: 1.9;
+            font-weight: 400;
+        }
+
+        /* 2. Research Highlights - Vertical Accent Layout (No Boxes) */
+        .research-highlights {
+            padding: 6rem 0;
+            border-top: 1px solid var(--color-gray-200);
+        }
+
+        .research-highlights h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 4rem;
+            text-align: left;
+            color: var(--color-gray-900);
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+        }
+
+        .highlight-item {
+            /* Removed background, borders, and padding */
+            background: none;
+            border: none;
+            padding: 0;
+            position: relative;
+        }
+
+        /* Using a simple top bar instead of a box */
+        .highlight-item::before {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--color-iit-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-item h3 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: var(--color-iit-primary);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .highlight-item p {
+            font-size: 0.95rem;
+            color: var(--color-gray-700);
+            line-height: 1.6;
+        }
+
+        /* 3. News Section - Clean List Layout (No Boxes) */
+        .sleek-news-section {
+            padding: 6rem 0;
+            border-top: 1px solid var(--color-gray-200);
+        }
+
+        .news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3rem;
+        }
+
+        .news-header h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+        }
+
+        .view-all-link {
+            text-decoration: none;
+            color: var(--color-iit-secondary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sleek-news-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sleek-news-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--color-gray-100);
+            background: none; /* Removed white background box */
+            gap: 3rem;
+        }
+
+        .sleek-news-item:last-child {
+            border-bottom: none;
+        }
+
+        .sleek-news-date {
+            min-width: 120px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--color-gray-400);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-top: 0.25rem;
+        }
+
+        .sleek-news-content {
+            flex: 1;
+            font-size: 1rem;
+            color: var(--color-gray-700);
+            line-height: 1.6;
+        }
+
+        .sleek-news-icon {
+            font-size: 1.2rem;
+            opacity: 0.5;
+            padding-top: 0.2rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            .highlight-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-title { font-size: 2.5rem; }
+            .sleek-news-item { gap: 1rem; flex-direction: column; }
+            .sleek-news-date { min-width: auto; margin-bottom: 0.5rem; }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="header-container">
             <div class="logo-section">
-                <h1>Murali Lab</h1>
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Murali Lab</a></h1>
                 <p>IIT Jodhpur</p>
             </div>
             <nav>
@@ -18,7 +175,6 @@
                     <li><a href="research.html">Research</a></li>
                     <li><a href="publications.html">Publications</a></li>
                     <li><a href="team.html">Team</a></li>
-                   <!-- <li><a href="join.html">Join</a></li>-->
                     <li><a href="teaching.html">Teaching</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -27,45 +183,46 @@
     </header>
     
     <main>
-        <h2 class="page-title">Welcome to Murali Lab</h2>
-        <div class="research-content">
-            <p class="research-intro">
-                Welcome to the Murali Lab at IIT Jodhpur. Our research focuses on understanding the cognitive and neural mechanisms underlying control of actions, thoughts, and emotions. We employ a multidisciplinary approach combining neuroimaging, computational modeling, and behavioral analysis to investigate how brain networks support cognitive functions and how these can be modulated in health and disease.
-            </p>
-            
-            <!-- Quick research overview -->
-            <div class="research-areas">
-                <div class="research-card">
-                    <h3>Strategies of control</h3>
-                   <!-- <p>Exploring strategies to modulate inhibitory control of actions and thoughts using neurofeedback and brain stimulation approaches.</p>-->
+        <section class="hero-section">
+            <h1 class="hero-title">Welcome to Murali Lab</h1>
+            <div class="hero-content">
+                <p class="hero-description">
+                    Welcome to the Murali Lab at IIT Jodhpur. 
+                </p>
+            </div>
+        </section>
+
+        <section class="research-highlights">
+            <h2>Research Areas</h2>
+            <div class="highlight-grid">
+                <div class="highlight-item">
+                    <h3>Strategies of Control</h3>
+                    <p></p>
                 </div>
-                
-                <div class="research-card">
-                    <h3>BCI and motor control</h3>
-                    <!-- <p>Investigating the functional role of transient neural oscillations in cognition and their alterations in neurological disorders.</p>-->
+                <div class="highlight-item">
+                    <h3>BCI & Motor Systems</h3>
+                    <p></p>
                 </div>
-                
-                <div class="research-card">
-                    <h3>Ecologically valid neuroscience </h3>
-                     <!--<p>Building computational models that bridge neural processes with behavior to understand cognitive control mechanisms.</p>-->
+                <div class="highlight-item">
+                    <h3>Ecologically valid neuroscience</h3>
+                    <p></p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- SLEEK NEWS SECTION -->
-        <section id="news" class="sleek-news-section">
+        <section class="sleek-news-section">
             <div class="sleek-news-container">
                 <div class="news-header">
-                    <h2>RECENT NEWS</h2>
-                    <a href="#" class="view-all-link">View All News →</a>
+                    <h2>Recent Updates</h2>
+                    <a href="#" class="view-all-link">Archive →</a>
                 </div>
                 
                 <div id="sleek-news-list" class="sleek-news-list">
-                    <div id="sleek-news-loading" class="sleek-loading">Loading recent news...</div>
+                    <div id="sleek-news-loading" class="sleek-loading">Loading news feed...</div>
                 </div>
                 
                 <div id="sleek-news-error" class="error-message" style="display: none;">
-                    Unable to load news updates. Please check back later.
+                    Unable to connect to the news feed.
                 </div>
             </div>
         </section>
@@ -77,42 +234,35 @@
                 <p>© 2025 Murali Lab | IIT Jodhpur</p>
             </div>
             <div class="social-links">
-                <a href="#">Twitter</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">GitHub</a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </footer>
 
     <script>
-        // Load news from JSON file
         async function loadNews() {
             const newsList = document.getElementById('sleek-news-list');
             const loadingElement = document.getElementById('sleek-news-loading');
             const errorElement = document.getElementById('sleek-news-error');
             
             try {
-                // Fetch news data from JSON file
                 const response = await fetch('news.json');
-                
-                if (!response.ok) {
-                    throw new Error(`Failed to load news: ${response.status}`);
-                }
-                
+                if (!response.ok) throw new Error(`Status: ${response.status}`);
                 const data = await response.json();
                 
                 if (!data.news || data.news.length === 0) {
-                    newsList.innerHTML = '<div class="sleek-no-news">No recent news updates.</div>';
+                    newsList.innerHTML = '<div>No recent updates available.</div>';
                     loadingElement.style.display = 'none';
                     return;
                 }
                 
-                // Display the news
                 displaySleekNews(data.news);
                 loadingElement.style.display = 'none';
                 
             } catch (error) {
-                console.error('Error loading news:', error);
+                console.error('News Load Error:', error);
                 loadingElement.style.display = 'none';
                 errorElement.style.display = 'block';
             }
@@ -120,62 +270,37 @@
 
         function highlightNames(content, names) {
             if (!names || names.length === 0) return content;
-            
-            let highlightedContent = content;
+            let highlighted = content;
             names.forEach(name => {
-                const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                const regex = new RegExp(`\\b${escapedName}\\b`, 'gi');
-                highlightedContent = highlightedContent.replace(regex, `<strong>${name}</strong>`);
+                const regex = new RegExp(`\\b${name}\\b`, 'gi');
+                highlighted = highlighted.replace(regex, `<strong>${name}</strong>`);
             });
-            return highlightedContent;
+            return highlighted;
         }
 
         function getNewsIcon(type) {
-            const icons = {
-                'conference': '📊',
-                'join': '🎓',
-                'hire': '👥',
-                'paper': '📄',
-                'award': '🏆',
-                'talk': '🎤',
-                'grant': '💰'
-            };
-            return icons[type] || '📌';
+            const icons = { 'conference': '📊', 'join': '🎓', 'hire': '👥', 'paper': '📄', 'award': '🏆', 'talk': '🎤', 'grant': '💰' };
+            return icons[type] || '•';
         }
 
         function displaySleekNews(newsData) {
             const newsList = document.getElementById('sleek-news-list');
+            const sortedNews = [...newsData].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 5);
             
-            // Sort by date (newest first)
-            const sortedNews = [...newsData].sort((a, b) => {
-                return new Date(b.date) - new Date(a.date);
-            });
-            
-            // Display only the 5 most recent items
-            const recentNews = sortedNews.slice(0, 5);
-            
-            const newsHTML = recentNews.map(item => {
-                const highlightedContent = highlightNames(item.content, item.highlightedNames);
-                
-                return `
-                    <div class="sleek-news-item ${item.type}">
-                        <div class="sleek-news-date">${formatDate(item.date)}</div>
-                        <div class="sleek-news-content">${highlightedContent}</div>
-                        <div class="sleek-news-icon">${getNewsIcon(item.type)}</div>
-                    </div>
-                `;
-            }).join('');
-
-            newsList.innerHTML = newsHTML;
+            newsList.innerHTML = sortedNews.map(item => `
+                <div class="sleek-news-item">
+                    <div class="sleek-news-date">${formatDate(item.date)}</div>
+                    <div class="sleek-news-content">${highlightNames(item.content, item.highlightedNames)}</div>
+                    <div class="sleek-news-icon">${getNewsIcon(item.type)}</div>
+                </div>
+            `).join('');
         }
 
         function formatDate(dateString) {
             const date = new Date(dateString);
-            const options = { year: 'numeric', month: 'short', day: 'numeric' };
-            return date.toLocaleDateString('en-US', options);
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
         }
 
-        // Initialize news loading when page loads
         document.addEventListener('DOMContentLoaded', loadNews);
     </script>
 </body>

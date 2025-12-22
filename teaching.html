@@ -6,6 +6,70 @@
     <title>Teaching | Murali Lab | IIT Jodhpur</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Minimalist Teaching Style */
+        .teaching-term {
+            /* Increased gap between years/terms */
+            margin-bottom: 6rem; 
+        }
+
+        .term-header {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-iit-primary);
+            border-left: 4px solid var(--color-iit-primary);
+            padding-left: 1rem;
+            margin-bottom: 2.5rem;
+            background: var(--color-gray-100);
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+
+        .course-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--color-gray-100);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .course-item:last-child { border-bottom: none; }
+
+        .course-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--color-gray-900);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        /* Style for the role inside the bracket */
+        .role-text {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--color-gray-600);
+            margin-left: 8px;
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--color-gray-600);
+            font-weight: 600;
+        }
+
+        .course-code { 
+            color: var(--color-iit-secondary); 
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .course-item { flex-direction: column; gap: 0.5rem; }
+            .role-text { display: block; margin-left: 0; margin-top: 4px; }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,10 +82,8 @@
                 <ul>
                     <li><a href="research.html">Research</a></li>
                     <li><a href="publications.html">Publications</a></li>
-                    <li><a href="teaching.html" class="active">Teaching</a></li>
-                 <!--   <li><a href="join.html">Join</a></li>-->
                     <li><a href="team.html">Team</a></li>
-                    <li><a href="teaching.html">Teaching</a></li>
+                    <li><a href="teaching.html" class="active">Teaching</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -30,12 +92,8 @@
     
     <main>
         <h2 class="page-title">Teaching</h2>
-        
-        
-
-        <!-- Teaching Terms Container -->
         <div id="teaching-container" class="teaching-container">
-            <div id="teaching-loading" class="loading">Loading teaching information...</div>
+            <div id="teaching-loading" class="loading">Loading courses...</div>
         </div>
         
         <div id="teaching-error" class="error-message" style="display: none;">
@@ -57,135 +115,57 @@
     </footer>
 
     <script>
-        // Load teaching data from JSON file
         async function loadTeaching() {
-            const teachingContainer = document.getElementById('teaching-container');
-            const loadingElement = document.getElementById('teaching-loading');
-            const errorElement = document.getElementById('teaching-error');
+            const container = document.getElementById('teaching-container');
+            const loading = document.getElementById('teaching-loading');
+            const error = document.getElementById('teaching-error');
             
             try {
-                console.log('Loading teaching.json...');
                 const response = await fetch('./teaching.json');
-                
-                if (!response.ok) {
-                    throw new Error(`Failed to load teaching: ${response.status}`);
-                }
-                
+                if (!response.ok) throw new Error('Fetch failed');
                 const data = await response.json();
                 
                 if (!data.teaching || data.teaching.length === 0) {
-                    teachingContainer.innerHTML = '<div class="no-teaching">No teaching information to display.</div>';
-                    loadingElement.style.display = 'none';
-                    return;
+                    container.innerHTML = '<div>No teaching records found.</div>';
+                } else {
+                    displayTeaching(data.teaching);
                 }
-                
-                // Display teaching information
-                displayTeaching(data.teaching);
-                loadingElement.style.display = 'none';
-                
-            } catch (error) {
-                console.error('Error loading teaching:', error);
-                loadingElement.style.display = 'none';
-                errorElement.style.display = 'block';
-                
-                // Fallback data
-                const fallbackData = [
-                    {
-                        "year": "2025-2026",
-                        "term": "Fall",
-                        "courses": [
-                            {
-                                "id": 1,
-                                "title": "Sensation and Perception",
-                                "code": "AIL7240",
-                                "role": "Instructor"
-                            }
-                        ]
-                    }
-                ];
-                
-                displayTeaching(fallbackData);
-                teachingContainer.innerHTML += '<p style="color: #e74c3c; text-align: center; margin-top: 20px;"><i>Note: Using fallback data. Check console for JSON loading errors.</i></p>';
+                loading.style.display = 'none';
+            } catch (e) {
+                loading.style.display = 'none';
+                error.style.display = 'block';
             }
         }
 
-        // Function to display teaching information
         function displayTeaching(teachingData) {
-            const teachingContainer = document.getElementById('teaching-container');
+            const container = document.getElementById('teaching-container');
             
-            // Sort by year and term (newest first)
-            const sortedTeaching = sortTeachingData(teachingData);
+            // Sort: Fall vs Spring logic could be added here, but sorting by Year primary
+            const sorted = teachingData.sort((a, b) => b.year.localeCompare(a.year));
             
-            let teachingHTML = '';
-            
-            // Create HTML for each term
-            sortedTeaching.forEach(term => {
-                teachingHTML += createTermHTML(term);
-            });
-            
-            teachingContainer.innerHTML = teachingHTML;
-        }
-
-        function sortTeachingData(teachingData) {
-            // Create a sortable value for each term
-            const termOrder = {
-                'Fall': 1,
-                'Spring': 2,
-                'Summer': 3
-            };
-            
-            return [...teachingData].sort((a, b) => {
-                // Sort by year (newest first)
-                const yearA = a.year.split('-')[0];
-                const yearB = b.year.split('-')[0];
-                
-                if (yearB !== yearA) {
-                    return yearB - yearA;
-                }
-                
-                // If same year, sort by term order
-                return termOrder[a.term] - termOrder[b.term];
-            });
-        }
-
-        function createTermHTML(term) {
-            const termTitle = `${term.term} Term (${term.year})`;
-            
-            const coursesHTML = term.courses.map(course => {
-                return createCourseHTML(course);
-            }).join('');
-            
-            return `
+            container.innerHTML = sorted.map(term => `
                 <div class="teaching-term">
-                    <h3 class="term-header">${termTitle}</h3>
+                    <h3 class="term-header">${term.term} ${term.year}</h3>
                     <div class="courses-list">
-                        ${coursesHTML}
-                    </div>
-                </div>
-            `;
-        }
-
-        function createCourseHTML(course) {
-            const programInfo = course.program ? `<span class="course-program">${course.program}</span>` : '';
-            const codeInfo = course.code ? `<span class="course-code">${course.code}</span>` : '';
-            
-            return `
-                <div class="course-item" data-role="${course.role.toLowerCase().replace(' ', '-')}">
-                    <div class="course-content">
-                        <h4 class="course-title">${course.title}</h4>
-                        <div class="course-details">
-                            <div class="course-meta">
-                                ${codeInfo}
-                                ${programInfo}
+                        ${term.courses.map(course => `
+                            <div class="course-item">
+                                <div class="course-info">
+                                    <h4 class="course-title">
+                                        ${course.title} 
+                                        <span class="role-text">(${course.role})</span>
+                                    </h4>
+                                    <div class="course-meta">
+                                        <span class="course-code">${course.code || ''}</span>
+                                        <span class="course-program">${course.program || ''}</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="course-role">${course.role}</div>
-                        </div>
+                        `).join('')}
                     </div>
                 </div>
-            `;
+            `).join('');
         }
 
-        // Initialize when page loads
         document.addEventListener('DOMContentLoaded', loadTeaching);
     </script>
 </body>
