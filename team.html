@@ -30,7 +30,7 @@
         <h2 class="page-title">Our Team</h2>
         
         <div class="team-categories">
-            <button class="category-btn active" data-category="all">All Members</button>
+            <button class="category-btn active" data-category="current">Current Members</button>
             <button class="category-btn" data-category="faculty">Faculty</button>
             <button class="category-btn" data-category="phd">PhD Students</button>
             <button class="category-btn" data-category="masters">Master's Students</button>
@@ -76,6 +76,9 @@
                 const data = await response.json();
                 displayTeam(data.team);
                 loadingElement.style.display = 'none';
+                
+                // Initialize the filter to "Current Members" immediately after loading
+                applyFilter('current');
             } catch (error) {
                 console.error(error);
                 loadingElement.style.display = 'none';
@@ -148,45 +151,43 @@
             return email ? email.replace(/\[at\]/g, '@').replace(/\[dot\]/g, '.') : '';
         }
 
+        function applyFilter(category) {
+            document.querySelectorAll('.team-member').forEach(member => {
+                const memberCategory = member.dataset.category;
+                
+                if (category === 'current') {
+                    // Show everyone EXCEPT alumni
+                    member.style.display = (memberCategory !== 'alumni') ? 'flex' : 'none';
+                } else {
+                    // Show only exact match
+                    member.style.display = (memberCategory === category) ? 'flex' : 'none';
+                }
+            });
+        }
+
         function setupCategoryFilter() {
             document.querySelectorAll('.category-btn').forEach(button => {
                 button.addEventListener('click', () => {
                     document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
                     button.classList.add('active');
-                    const category = button.dataset.category;
-                    document.querySelectorAll('.team-member').forEach(member => {
-                        member.style.display = (category === 'all' || member.dataset.category === category) ? 'flex' : 'none';
-                    });
+                    applyFilter(button.dataset.category);
                 });
             });
         }
 
-        // ... (keep your loadTeam, displayTeam, and other functions as they are) ...
+        document.addEventListener('DOMContentLoaded', () => {
+            loadTeam();
+            setupCategoryFilter();
+        });
 
-// Initialize when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    loadTeam();
-    setupCategoryFilter();
-});
-
-// Single Unified Click Listener for ALL dynamic elements
-document.addEventListener('click', (e) => {
-    // Read more button functionality
-    if (e.target.classList.contains('read-more-btn')) {
-        const bioContainer = e.target.closest('.member-bio');
-        const bioText = bioContainer.querySelector('p');
-        
-        // Toggle the class
-        bioText.classList.toggle('collapsed');
-        
-        // Update the button text based on the presence of 'collapsed'
-        if (bioText.classList.contains('collapsed')) {
-            e.target.textContent = 'Read more';
-        } else {
-            e.target.textContent = 'Read less';
-        }
-    }
-});
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('read-more-btn')) {
+                const bioContainer = e.target.closest('.member-bio');
+                const bioText = bioContainer.querySelector('p');
+                bioText.classList.toggle('collapsed');
+                e.target.textContent = bioText.classList.contains('collapsed') ? 'Read more' : 'Read less';
+            }
+        });
     </script>
 </body>
 </html>
