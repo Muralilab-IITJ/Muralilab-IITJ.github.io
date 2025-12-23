@@ -140,6 +140,22 @@
                 "scholar": "",
                 "github": ""
             }
+        },
+        {
+            "id": 9,
+            "name": "Vikas Kumar Sharma",
+            "position": "Master's Student (M.Tech AR/VR)",
+            "category": "alumni",
+            "bio": "",
+            "photo": "images/pranaya.jpg",
+            "email": "",
+            "interests": [],
+            "joinDate": "2024",
+            "links": {
+                "linkedin": "",
+                "scholar": "",
+                "github": ""
+            }
         }
     ]
 }
