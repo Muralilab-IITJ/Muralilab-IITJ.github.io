@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Murali Lab | IIT Jodhpur</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Additional styles specific to contact page */
         .contact-content {
@@ -211,23 +212,27 @@
 </head>
 <body>
     <header>
-        <div class="header-container">
-            <div class="logo-section">
-                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Murali Lab</a></h1>
-                <p>IIT Jodhpur</p>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="publications.html">Publications</a></li>
-                    <li><a href="team.html">Team</a></li>
-                    <!--<li><a href="join.html">Join</a></li>-->
-                    <li><a href="teaching.html">Teaching</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
-                </ul>
-            </nav>
+    <div class="header-container">
+        <div class="logo-section">
+            <h1><a href="index.html" style="text-decoration: none; color: inherit;">Murali Lab</a></h1>
+            <p>IIT Jodhpur</p>
         </div>
-    </header>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="research.html">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
     
     <main>
         <h1 class="page-title">Contact Us</h1>
@@ -353,6 +358,29 @@
                 }
             });
         });
+        // ==========================================
+// MOBILE MENU TOGGLE LOGIC
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('mobile-menu');
+    const nav = document.querySelector('nav');
+
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            
+            // Optional: Change icon from Bars to X
+            const icon = menuToggle.querySelector('i');
+            if (nav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+});
     </script>
 </body>
 </html>
