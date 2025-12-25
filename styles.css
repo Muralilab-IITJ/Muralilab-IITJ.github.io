@@ -350,3 +350,18 @@ footer { background-color: var(--color-gray-100); padding: 3rem 1.5rem; border-t
         height: 300px; /* Smaller maps */
     }
 }
+/* =========================================
+   FOOTER / DEVELOPER CREDIT STYLES
+   ========================================= */
+.copyright {
+    display: flex;
+    flex-direction: column; /* Stacks the two lines vertically */
+    align-items: center;
+    gap: 5px; /* Small space between lines */
+}
+
+.developer-credit {
+    font-size: 0.85rem; /* Slightly smaller than main text */
+    color: #bdc3c7;     /* Light gray color */
+    margin: 0;
+}
