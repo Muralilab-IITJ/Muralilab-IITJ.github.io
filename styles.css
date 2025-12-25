@@ -212,6 +212,32 @@ main {
 .social-link { color: var(--color-gray-400); font-size: 1.1rem; transition: color 0.2s; }
 .social-link:hover { color: var(--color-iit-primary); }
 
+.member-social-row {
+    display: flex;
+    /* Increased gap: was 1.5rem, now 2.5rem (approx 40px) */
+    gap: 2.5rem; 
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.member-social-row a {
+    /* Uniform Gray Color */
+    color: #95a5a6; 
+    font-size: 1.4rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+/* Optional: Darker gray on hover */
+.member-social-row a:hover {
+    color: #555; 
+    transform: translateY(-2px);
+}
+
 /* ===== JOIN CTA & FOOTER ===== */
 .join-cta { text-align: center; padding: 5rem 2rem; border-top: 1px solid var(--color-gray-200); margin-top: 4rem; }
 footer { background-color: var(--color-gray-100); padding: 3rem 1.5rem; border-top: 1px solid var(--color-gray-200); margin-top: auto; }

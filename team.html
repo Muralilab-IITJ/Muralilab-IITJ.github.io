@@ -30,7 +30,7 @@
         <h2 class="page-title">Our Team</h2>
         
         <div class="team-categories">
-            <button class="category-btn active" data-category="current">Current Members</button>
+            <button class="category-btn active" data-category="all">All Members</button>
             <button class="category-btn" data-category="faculty">Faculty</button>
             <button class="category-btn" data-category="phd">PhD Students</button>
             <button class="category-btn" data-category="masters">Master's Students</button>
@@ -47,7 +47,7 @@
 
         <div class="join-cta">
             <h3>Interested in joining our team?</h3>
-            <p>We're always looking for passionate researchers at all levels. Check out our <a href="join.html">Join</a> page for current opportunities.</p>
+            <p>We're always looking for passionate researchers at all levels. Check out our <a href="contact.html">Contact</a> page.</p>
         </div>
     </main>
     
@@ -56,15 +56,13 @@
             <div class="copyright">
                 <p>© 2025 Murali Lab | IIT Jodhpur</p>
             </div>
-          <!--  <div class="social-links">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>-->
         </div>
     </footer>
 
     <script>
+        // ==========================================
+        // TEAM LOADING & DISPLAY LOGIC
+        // ==========================================
         async function loadTeam() {
             const teamContainer = document.getElementById('team-container');
             const loadingElement = document.getElementById('team-loading');
@@ -76,9 +74,6 @@
                 const data = await response.json();
                 displayTeam(data.team);
                 loadingElement.style.display = 'none';
-                
-                // Initialize the filter to "Current Members" immediately after loading
-                applyFilter('current');
             } catch (error) {
                 console.error(error);
                 loadingElement.style.display = 'none';
@@ -91,12 +86,20 @@
             const teamContainer = document.getElementById('team-container');
             
             teamContainer.innerHTML = members.map(member => {
+                
+                // 1. Generate Social Icons (returns string of <a> tags)
                 const socialLinksHTML = generateSocialLinks(member.links);
                 
+                // 2. Generate Email Icon (returns string of <a> tag)
+                // Note: We use fa-regular fa-envelope or fa-solid fa-envelope based on preference
+                const emailLink = member.email 
+                    ? `<a href="mailto:${convertEmailFormat(member.email)}" title="Email"><i class="fa-regular fa-envelope"></i></a>` 
+                    : '';
+
                 return `
                     <div class="team-member" data-category="${member.category}">
                         <div class="member-photo">
-                            <img src="${member.photo}" alt="${member.name}" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+                            <img src="${member.photo}" alt="${member.name}" onerror="this.src='https://via.placeholder.com/200'">
                         </div>
                         <div class="member-info">
                             <h3 class="member-name">${member.name}</h3>
@@ -107,29 +110,23 @@
                             <div class="member-interests">
                                 ${member.interests.map(interest => `<span class="interest-tag">${interest}</span>`).join('')}
                             </div>
-                            <div class="member-meta">
-                                <a href="mailto:${convertEmailFormat(member.email)}" class="member-email">
-                                    <i class="fas fa-envelope"></i> Email
-                                </a>
+                            
+                            <div class="member-social-row">
+                                ${emailLink}
+                                ${socialLinksHTML}
                             </div>
-                            ${socialLinksHTML}
                         </div>
                     </div>
                 `;
             }).join('');
 
-            // Read more logic
-            document.querySelectorAll('.member-bio').forEach(bio => {
-                const bioText = bio.querySelector('p');
-                if (bioText.textContent.length > 250) {
-                    bioText.classList.add('collapsed');
-                    bio.insertAdjacentHTML('beforeend', '<button class="read-more-btn">Read more</button>');
-                }
-            });
+            // Initialize "Read More" functionality for long bios
+            initReadMore();
         }
 
         function generateSocialLinks(links) {
             if (!links || Object.keys(links).length === 0) return '';
+            
             const iconMap = {
                 'linkedin': 'fab fa-linkedin',
                 'scholar': 'fas fa-graduation-cap',
@@ -138,31 +135,22 @@
                 'twitter': 'fab fa-twitter',
                 'website': 'fas fa-globe'
             };
+            
             let linksHTML = '';
+            
+            // Loop through links and create <a> tags without wrapper divs
             Object.entries(links).forEach(([platform, url]) => {
                 if (url && iconMap[platform]) {
-                    linksHTML += `<a href="${url}" class="social-link" target="_blank" rel="noopener"><i class="${iconMap[platform]}"></i></a>`;
+                    linksHTML += `<a href="${url}" target="_blank" rel="noopener" title="${platform}"><i class="${iconMap[platform]}"></i></a>`;
                 }
             });
-            return linksHTML ? `<div class="member-social-links">${linksHTML}</div>` : '';
+            
+            return linksHTML;
         }
 
         function convertEmailFormat(email) {
+            // Converts "name[at]iitj[dot]ac[dot]in" to real email
             return email ? email.replace(/\[at\]/g, '@').replace(/\[dot\]/g, '.') : '';
-        }
-
-        function applyFilter(category) {
-            document.querySelectorAll('.team-member').forEach(member => {
-                const memberCategory = member.dataset.category;
-                
-                if (category === 'current') {
-                    // Show everyone EXCEPT alumni
-                    member.style.display = (memberCategory !== 'alumni') ? 'flex' : 'none';
-                } else {
-                    // Show only exact match
-                    member.style.display = (memberCategory === category) ? 'flex' : 'none';
-                }
-            });
         }
 
         function setupCategoryFilter() {
@@ -170,22 +158,44 @@
                 button.addEventListener('click', () => {
                     document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
                     button.classList.add('active');
-                    applyFilter(button.dataset.category);
+                    const category = button.dataset.category;
+                    document.querySelectorAll('.team-member').forEach(member => {
+                        member.style.display = (category === 'all' || member.dataset.category === category) ? 'flex' : 'none';
+                    });
                 });
             });
         }
 
+        function initReadMore() {
+            document.querySelectorAll('.member-bio').forEach(bio => {
+                const bioText = bio.querySelector('p');
+                // Check if text is actually long enough to need collapsing (approx 200 chars)
+                if (bioText.textContent.length > 200) {
+                    bioText.classList.add('collapsed');
+                    bio.insertAdjacentHTML('beforeend', '<button class="read-more-btn">Read more</button>');
+                }
+            });
+        }
+
+        // Initialize when page loads
         document.addEventListener('DOMContentLoaded', () => {
             loadTeam();
             setupCategoryFilter();
         });
 
+        // Event delegation for dynamically added "Read More" buttons
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('read-more-btn')) {
                 const bioContainer = e.target.closest('.member-bio');
                 const bioText = bioContainer.querySelector('p');
+                
                 bioText.classList.toggle('collapsed');
-                e.target.textContent = bioText.classList.contains('collapsed') ? 'Read more' : 'Read less';
+                
+                if (bioText.classList.contains('collapsed')) {
+                    e.target.textContent = 'Read more';
+                } else {
+                    e.target.textContent = 'Read less';
+                }
             }
         });
     </script>
