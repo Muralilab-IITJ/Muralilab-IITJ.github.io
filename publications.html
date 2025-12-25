@@ -12,8 +12,8 @@
             max-width: 800px;
             margin: 0 auto 3rem;
             text-align: center;
-            color: var(--color-gray-600);
-            font-size: var(--text-lg);
+            color: #666;
+            font-size: 1.1rem;
         }
 
         .publication-filters {
@@ -26,22 +26,22 @@
 
         .filter-btn {
             background: none;
-            border: 1px solid var(--color-gray-200);
+            border: 1px solid #ddd;
             padding: 0.5rem 1.25rem;
             border-radius: 4px;
-            font-size: var(--text-xs);
+            font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
             transition: 0.2s;
-            color: var(--color-gray-600);
+            color: #666;
         }
 
         .filter-btn.active, .filter-btn:hover {
-            background: var(--color-iit-primary);
+            background: var(--primary-color, #2c3e50);
             color: white;
-            border-color: var(--color-iit-primary);
+            border-color: var(--primary-color, #2c3e50);
         }
 
         .year-group {
@@ -49,10 +49,10 @@
         }
 
         .year-header {
-            font-family: var(--font-heading);
+            font-family: 'Merriweather', serif;
             font-size: 1.75rem;
-            color: var(--color-gray-900);
-            border-bottom: 2px solid var(--color-gray-100);
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
             padding-bottom: 0.5rem;
             margin-bottom: 2rem;
         }
@@ -60,8 +60,8 @@
         .publication-item {
             margin-bottom: 2.5rem;
             padding-bottom: 2.5rem;
-            border-bottom: 1px solid var(--color-gray-100);
-            background: none; /* No box */
+            border-bottom: 1px solid #eee;
+            background: none;
             display: flex;
             gap: 2rem;
         }
@@ -69,7 +69,7 @@
         .publication-item:last-child { border-bottom: none; }
 
         .publication-title {
-            font-family: var(--font-heading);
+            font-family: 'Merriweather', serif;
             font-size: 1.15rem;
             margin-bottom: 0.5rem;
             line-height: 1.4;
@@ -77,44 +77,64 @@
 
         .publication-title a {
             text-decoration: none;
-            color: var(--color-iit-primary);
+            color: var(--primary-color, #2c3e50);
             transition: color 0.2s;
         }
 
-        .publication-title a:hover { color: var(--color-iit-secondary); }
+        .publication-title a:hover { color: var(--accent-color, #3498db); }
 
         .publication-authors {
             font-size: 0.95rem;
-            color: var(--color-gray-700);
+            color: #555;
             margin-bottom: 0.25rem;
         }
 
         .publication-journal {
             font-size: 0.9rem;
-            color: var(--color-gray-600);
+            color: #666;
             font-style: italic;
         }
 
-        .publication-year { font-style: normal; font-weight: 700; color: var(--color-gray-400); }
+        .publication-year { font-style: normal; font-weight: 700; color: #999; }
+
+        /* --- NEW TAG STYLES --- */
+        .publication-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .tag-badge {
+            font-size: 0.7rem;
+            background-color: #f0f4f8;
+            color: #475569;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 1px solid #e2e8f0;
+        }
 
         .publication-type {
             display: inline-block;
-            margin-top: 1rem;
+            margin-top: 5px;
             font-size: 10px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--color-iit-secondary);
+            color: var(--accent-color, #3498db);
             padding: 2px 8px;
-            border: 1px solid var(--color-iit-secondary);
+            border: 1px solid var(--accent-color, #3498db);
             border-radius: 3px;
         }
 
-        strong { color: var(--color-gray-900); font-weight: 700; }
+        strong { color: #222; font-weight: 700; }
 
-        @media (max-width: 768px) {
-            .publication-item { flex-direction: column; gap: 0.5rem; }
-        }
+        /* Loading & Error States */
+        .loading { text-align: center; color: #888; padding: 20px; }
+        .error-message { text-align: center; color: #e74c3c; padding: 20px; display: none; }
     </style>
 </head>
 <body>
@@ -154,8 +174,8 @@
             <div id="publications-loading" class="loading">Loading library...</div>
         </div>
         
-        <div id="publications-error" class="error-message" style="display: none;">
-            Unable to load publications.
+        <div id="publications-error" class="error-message">
+            Unable to load publications. Please check your connection or try again later.
         </div>
     </main>
     
@@ -164,22 +184,21 @@
             <div class="copyright">
                 <p>© 2025 Murali Lab | IIT Jodhpur</p>
             </div>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>
         </div>
     </footer>
 
     <script>
         async function loadPublications() {
-            const container = document.getElementById('publications-container');
             try {
+                // Fetching from JSON file as requested
                 const response = await fetch('./publications.json');
                 if (!response.ok) throw new Error('Fetch failed');
+                
+                // Assuming structure is { "publications": [...] } or just [...]
                 const data = await response.json();
-                displayPublications(data.publications);
+                const pubs = data.publications ? data.publications : data;
+                
+                displayPublications(pubs);
                 document.getElementById('publications-loading').style.display = 'none';
             } catch (error) {
                 console.error(error);
@@ -201,7 +220,15 @@
                 <div class="year-group">
                     <h3 class="year-header">${year}</h3>
                     <div class="publications-list">
-                        ${grouped[year].map(pub => `
+                        ${grouped[year].map(pub => {
+                            // LOGIC ADDED HERE: Generate Tag HTML if tags exist
+                            const tagsHtml = (pub.tags && pub.tags.length > 0) 
+                                ? `<div class="publication-tags">
+                                     ${pub.tags.map(tag => `<span class="tag-badge">${tag}</span>`).join('')}
+                                   </div>` 
+                                : '';
+
+                            return `
                             <div class="publication-item" data-type="${pub.type}">
                                 <div class="publication-content">
                                     <h4 class="publication-title">
@@ -209,10 +236,13 @@
                                     </h4>
                                     <div class="publication-authors">${highlightLabMembers(pub.authors)}</div>
                                     <div class="publication-journal">${pub.journal} <span class="publication-year">(${pub.year})</span></div>
+                                    
+                                    ${tagsHtml}
+                                    
                                     <div class="publication-type">${pub.type}</div>
                                 </div>
                             </div>
-                        `).join('')}
+                        `}).join('')}
                     </div>
                 </div>
             `).join('');
