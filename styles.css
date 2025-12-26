@@ -281,10 +281,9 @@ footer { background-color: var(--color-gray-100); padding: 3rem 1.5rem; border-t
         z-index: 1000;
     }
 
-    /* The class .active is added via JS to show menu */
     nav.active {
-        max-height: 300px; /* Expands to show links */
-    }
+    max-height: 100vh; /* This allows it to grow as tall as the screen */
+}
 
     .nav-links {
         flex-direction: column;
