@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunities | Murali Lab | IIT Jodhpur</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Table Styles specific to this page */
+        .opportunities-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .opp-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        .opp-table tr {
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .opp-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .opp-table td {
+            padding: 2rem 1.5rem;
+            vertical-align: top;
+        }
+
+        /* Left Column: Position Title */
+        .opp-position {
+            width: 35%; /* Fixed width for consistency */
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: var(--color-iit-primary);
+            font-weight: 700;
+        }
+
+        /* Right Column: Details */
+        .opp-details {
+            width: 65%;
+            font-size: 1rem;
+            color: var(--color-gray-700);
+            line-height: 1.6;
+        }
+
+        .opp-details a {
+            color: var(--color-iit-secondary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .opp-details a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .opp-table tr {
+                display: flex;
+                flex-direction: column;
+                padding: 1.5rem 0;
+            }
+            
+            .opp-table td {
+                width: 100%;
+                padding: 0.5rem 0;
+                display: block;
+            }
+
+            .opp-position {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Murali Lab</a></h1>
+                <p>IIT Jodhpur</p>
+            </div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+    
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+                    <li><a href="opportunity.html" class="active">Opportunities</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <h1 class="page-title">Opportunities</h1>
+        
+        <div class="opportunities-container">
+            <p style="text-align: center; color: var(--color-gray-600); margin-bottom: 2rem;">
+                We are always looking for motivated individuals to join our lab.
+            </p>
+
+            <table class="opp-table">
+                <tr>
+                    <td class="opp-position">Post-doctoral Fellow</td>
+                    <td class="opp-details">
+                        Currently there are no open positions. Please check back later or email your CV for future consideration.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="opp-position">PhD Students</td>
+                    <td class="opp-details">
+                        Admissions are conducted centrally through IIT Jodhpur. 
+                        <br><br>
+                        <a href="https://www.iitj.ac.in/admission-postgraduate-programs/en/advertisements" target="_blank">View Admission Information →</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="opp-position">Master's / Undergaduate</td>
+                    <td class="opp-details">
+                        Students interested in conducting their thesis/design credits work in the lab are encouraged to contact Vignesh.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="opp-position">Project Research Fellows</td>
+                    <td class="opp-details">
+                        Openings for JRF/SRF positions will be posted here when available.
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="copyright">
+                <p>© 2025 Murali Lab | IIT Jodhpur</p>
+                <p class="developer-credit">Developed by: Ashish V.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ==========================================
+        // MOBILE MENU TOGGLE LOGIC
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('mobile-menu');
+            const nav = document.querySelector('nav');
+
+            if (menuToggle && nav) {
+                menuToggle.addEventListener('click', () => {
+                    nav.classList.toggle('active');
+                    
+                    const icon = menuToggle.querySelector('i');
+                    if (nav.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

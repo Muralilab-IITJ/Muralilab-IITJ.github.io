@@ -33,8 +33,7 @@
             line-height: 1.9;
             font-weight: 400;
         }
-
-        /* 2. Research Highlights - Vertical Accent Layout (No Boxes) */
+/* 2. Research Highlights - Centered Layout */
         .research-highlights {
             padding: 6rem 0;
             border-top: 1px solid var(--color-gray-200);
@@ -44,33 +43,44 @@
             font-family: var(--font-heading);
             font-size: 2rem;
             margin-bottom: 4rem;
-            text-align: left;
+            text-align: center;
             color: var(--color-gray-900);
         }
 
         .highlight-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 4rem;
+            display: flex;              /* Changed from grid to flex */
+            flex-wrap: wrap;            /* Allow wrapping to next line */
+            justify-content: center;    /* Center the items in the row */
+            gap: 4rem;                  /* Space between items */
         }
 
         .highlight-item {
-            /* Removed background, borders, and padding */
+            /* MATH EXPLANATION: 
+               We want 3 items per row. 
+               Between 3 items, there are 2 gaps. 
+               Each gap is 4rem. Total gap space = 8rem.
+               So, width = (100% width - 8rem) / 3 items 
+            */
+            width: calc((100% - 8rem) / 3);
+            
             background: none;
             border: none;
             padding: 0;
             position: relative;
+            text-align: left; /* Keep text aligned left inside the centered box */
         }
 
-        /* Using a simple top bar instead of a box */
-        .highlight-item::before {
+        /* ... keep your existing .highlight-item::before, h3, and p styles ... */
+       /* .highlight-item::before {
             content: "";
             display: block;
             width: 40px;
             height: 3px;
             background: var(--color-iit-primary);
             margin-bottom: 1.5rem;
-        }
+        }*/
+        
+        /* ... existing font styles ... */
 
         .highlight-item h3 {
             font-family: var(--font-heading);
@@ -181,6 +191,8 @@
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="team.html">Team</a></li>
                 <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="opportunity.html">Opportunities</a></li>
+
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -209,7 +221,15 @@
                     <p></p>
                 </div>
                 <div class="highlight-item">
-                    <h3>Ecologically valid neuroscience</h3>
+                    <h3>Ecologically Valid Neuroscience</h3>
+                    <p></p>
+                </div>
+                <div class="highlight-item">
+                    <h3>Neural Oscillations & it's Functional Role</h3>
+                    <p></p>
+                </div>
+                <div class="highlight-item">
+                    <h3>NeuroAI</h3>
                     <p></p>
                 </div>
             </div>

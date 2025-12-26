@@ -1,6 +1,21 @@
 {
   "publications": [
 
+
+    {
+  "id": 1,
+  "year": "2025",
+  "title": "Investigating sensorimotor beta burst dynamics as a robust biomarker for graded force modulation in humans",
+  "authors": "Md Shaheen Perwez, Dr. Bhivraj Suthar, Dr. Vignesh Muralidharan",
+  "journal": "ACCS",
+  "link": "",
+  "type": "conference",
+  "tags": [
+    "Sensorimotor Beta Burst",
+    "Force Modulation",
+    "BCI"]
+    },
+
     {
       "id": "",
       "year": "2024",
