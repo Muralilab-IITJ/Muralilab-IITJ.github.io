@@ -5,51 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research | Murali Lab | IIT Jodhpur</title>
     <link rel="stylesheet" href="styles.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Compact Grid Layout */
+        .research-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .research-intro {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--color-gray-600);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* The Grid Wrapper */
+        .research-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal columns */
+            gap: 4rem; /* Space between columns */
+            row-gap: 4rem; /* Space between rows */
+        }
+
+        /* Individual Topic Item */
+        .research-topic {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .topic-content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-iit-primary);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            min-height: 3rem; /* Ensures alignment even if titles differ in length */
+        }
+
+        .topic-content p {
+            font-size: 0.95rem;
+            color: var(--color-gray-700);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            text-align: justify; /* Cleaner block text */
+        }
+
+        .topic-tag {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-iit-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            .research-grid {
+                grid-template-columns: 1fr; /* Stack vertically on mobile/tablets */
+                gap: 3rem;
+            }
+            
+            .topic-content h3 {
+                min-height: auto;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-    <div class="header-container">
-        <div class="logo-section">
-            <h1><a href="index.html" style="text-decoration: none; color: inherit;">Murali Lab</a></h1>
-            <p>IIT Jodhpur</p>
+        <div class="header-container">
+            <div class="logo-section">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Murali Lab</a></h1>
+                <p>IIT Jodhpur</p>
+            </div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+    
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="research.html" class="active">Research</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+                    <li><a href="opportunity.html">Opportunities</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        
-        <div class="menu-toggle" id="mobile-menu">
-            <i class="fas fa-bars"></i>
-        </div>
-
-        <nav>
-            <ul class="nav-links">
-                <li><a href="research.html">Research</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="team.html">Team</a></li>
-                <li><a href="teaching.html">Teaching</a></li>
-                <li><a href="opportunity.html">Opportunities</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    </header>
     
     <main>
-        <h2 class="page-title">Research</h2>
-        <div class="research-content">
-            <div class="research-areas">
-                <div class="research-card">
-                    <h3>Strategies to modulate inhibitory control of actions and thoughts</h3>
-                    <p>In everyday life, we are faced with situations where we have to control what to do, what to say, and what we think. How are we able to stop unwanted/inappropriate actions, intrusive thoughts that bother us, and negative emotions which hinder our ability to perform daily tasks? Impairments in inhibitory control manifests as disorders such as Tourette's Syndrome (uncontrollable actions or tics), Obsessive compulsive disorder and anxiety disorders. Using neurofeedback, behavioral, and brain stimulation approaches we will explore ways in which the underlying brain networks can be modulated to have functional effects on controlling actions and thoughts.</p>
-                </div>
+        <h2 class="page-title">Research Overview</h2>
+        
+        <div class="research-container">
+            <p class="research-intro">
+                Our lab investigates the neural mechanisms underlying cognitive control, motor systems, and neuro-technologies.
+            </p>
+
+            <div class="research-grid">
                 
-                <div class="research-card">
-                    <h3>Transient neural oscillations and their functional role in cognition</h3>
-                    <p>Neural oscillations have been implicated in the cognitive control of our movements, actions, memory, and thoughts. Neural oscillations often occur as brief "bursts" of activity and are transient in nature. What functional role do they serve in supporting cognition? Understanding these can pave ways to show how brain dynamics change in normal and disease conditions. For e.g. in Parkinson's disease, a neurodegenerative disorder characterized by motor and cognitive impairments, bursty oscillations in the beta band (13-30 Hz) are enhanced in both cortical and sub-cortical regions of the brain which are related to the symptoms such as slowness in movements and tremor.</p>
+                <div class="research-topic">
+                    <div class="topic-content">
+                        <span class="topic-tag">Cognitive Control</span>
+                        <h3>Strategies to modulate inhibitory control of actions and thoughts</h3>
+                        <p>
+                            In everyday life, we are faced with situations where we have to control what to do, what to say, and what we think. How are we able to stop unwanted actions, intrusive thoughts that bother us, and negative emotions which hinder our ability to perform daily tasks? 
+                        </p>
+                        <p>
+                            Impairments in inhibitory control manifests as disorders such as Tourette's Syndrome, OCD, and anxiety disorders. Using neurofeedback, behavioral, and brain stimulation approaches, we explore ways in which the underlying brain networks can be modulated to control actions and thoughts.
+                        </p>
+                    </div>
                 </div>
-                
-                <div class="research-card">
-                    <h3>Computational principles underlying cognitive control</h3>
-                    <p>Theory building requires a good understanding of the mechanistic and computational aspects of the underlying cognitive construct. We will focus on building computational models that bridge the gap between neural processes and behavior. This can range from how one can stop/control their actions to how then the cognitive control networks of the brain achieve this via interaction with sub-cortical networks.</p>
+
+                <div class="research-topic">
+                    <div class="topic-content">
+                        <span class="topic-tag">Neural Dynamics</span>
+                        <h3>Transient neural oscillations and their functional role</h3>
+                        <p>
+                            Neural oscillations have been implicated in the cognitive control of our movements, actions, memory, and thoughts. Often occurring as brief "bursts" of activity, these oscillations are transient in nature. What functional role do they serve in supporting cognition?
+                        </p>
+                        <p>
+                            Understanding these can pave ways to show how brain dynamics change in normal and disease conditions. For example, in Parkinson's disease, bursty oscillations in the beta band (13-30 Hz) are enhanced in both cortical and sub-cortical regions, relating to symptoms such as slowness in movements and tremor.
+                        </p>
+                    </div>
                 </div>
+
+                <div class="research-topic">
+                    <div class="topic-content">
+                        <span class="topic-tag">Computational Modeling</span>
+                        <h3>Computational principles underlying cognitive control</h3>
+                        <p>
+                            Theory building requires a good understanding of the mechanistic and computational aspects of the underlying cognitive construct. We focus on building computational models that bridge the gap between neural processes and behavior.
+                        </p>
+                        <p>
+                            Our work ranges from modeling how one can stop or control their actions, to how cognitive control networks achieve this via interaction with sub-cortical networks.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </main>
@@ -62,28 +165,30 @@
             </div>
         </div>
     </footer>
-    <script>// ==========================================
-// MOBILE MENU TOGGLE LOGIC
-// ==========================================
-document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('mobile-menu');
-    const nav = document.querySelector('nav');
 
-    if (menuToggle && nav) {
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            
-            // Optional: Change icon from Bars to X
-            const icon = menuToggle.querySelector('i');
-            if (nav.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+    <script>
+        // ==========================================
+        // MOBILE MENU TOGGLE LOGIC
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('mobile-menu');
+            const nav = document.querySelector('nav');
+
+            if (menuToggle && nav) {
+                menuToggle.addEventListener('click', () => {
+                    nav.classList.toggle('active');
+                    
+                    const icon = menuToggle.querySelector('i');
+                    if (nav.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
             }
         });
-    }
-});</script>
+    </script>
 </body>
 </html>
