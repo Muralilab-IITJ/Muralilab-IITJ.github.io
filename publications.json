@@ -1,7 +1,16 @@
 {
   "publications": [
 
-
+    {
+      "id": 1,
+      "year": "2025",
+      "title": "Characterizing Aperiodic neural dynamics during response inhibition",
+      "authors": "Arpit Shrimankar, Muralidharan V, Dipanjan Roy",
+      "journal": "ACCS",
+      "link": "leave this",
+      "type": "conference",
+      "tags": ["Aperiodic Oscillations"]
+    },
     {
   "id": 1,
   "year": "2025",
@@ -14,6 +23,17 @@
     "Sensorimotor Beta Burst",
     "Force Modulation",
     "BCI"]
+    },
+
+    {
+      "id": 1,
+      "year": "2025",
+      "title": "Modulation of the speed of Intrinsic Alpha Frequency (IAF) with tACS modulates variability of illusory speech perception",
+      "authors": " Shreya Deb, Vinsea Singh, Vignesh Muralidharan, Dipanjan Roy",
+      "journal": "ACCS",
+      "link": "leave this",
+      "type": "conference",
+      "tags": ["tACS, multisensory integration, speech perception, alpha oscillations"]
     },
 
     {

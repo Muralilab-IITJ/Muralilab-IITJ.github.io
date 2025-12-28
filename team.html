@@ -79,7 +79,17 @@
                 const response = await fetch('./team.json');
                 if (!response.ok) throw new Error('Failed to load team data');
                 const data = await response.json();
+                
                 displayTeam(data.team);
+                
+                // === NEW: Force the "All" filter to run immediately ===
+                // This ensures Alumni are hidden when the page first loads
+                const allBtn = document.querySelector('.category-btn[data-category="all"]');
+                if (allBtn) {
+                    // We need a slight delay to ensure event listeners are attached
+                    setTimeout(() => allBtn.click(), 10);
+                }
+
                 loadingElement.style.display = 'none';
             } catch (error) {
                 console.error(error);
@@ -93,12 +103,7 @@
             const teamContainer = document.getElementById('team-container');
             
             teamContainer.innerHTML = members.map(member => {
-                
-                // 1. Generate Social Icons (returns string of <a> tags)
                 const socialLinksHTML = generateSocialLinks(member.links);
-                
-                // 2. Generate Email Icon (returns string of <a> tag)
-                // Note: We use fa-regular fa-envelope or fa-solid fa-envelope based on preference
                 const emailLink = member.email 
                     ? `<a href="mailto:${convertEmailFormat(member.email)}" title="Email"><i class="fa-regular fa-envelope"></i></a>` 
                     : '';
@@ -127,7 +132,6 @@
                 `;
             }).join('');
 
-            // Initialize "Read More" functionality for long bios
             initReadMore();
         }
 
@@ -144,30 +148,49 @@
             };
             
             let linksHTML = '';
-            
-            // Loop through links and create <a> tags without wrapper divs
             Object.entries(links).forEach(([platform, url]) => {
                 if (url && iconMap[platform]) {
                     linksHTML += `<a href="${url}" target="_blank" rel="noopener" title="${platform}"><i class="${iconMap[platform]}"></i></a>`;
                 }
             });
-            
             return linksHTML;
         }
 
         function convertEmailFormat(email) {
-            // Converts "name[at]iitj[dot]ac[dot]in" to real email
             return email ? email.replace(/\[at\]/g, '@').replace(/\[dot\]/g, '.') : '';
         }
 
+        // ==========================================
+        // UPDATED FILTER LOGIC
+        // ==========================================
         function setupCategoryFilter() {
             document.querySelectorAll('.category-btn').forEach(button => {
                 button.addEventListener('click', () => {
+                    // 1. Visual update for buttons
                     document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
                     button.classList.add('active');
-                    const category = button.dataset.category;
+                    
+                    // 2. Filter Logic
+                    const selectedCategory = button.dataset.category;
+                    
                     document.querySelectorAll('.team-member').forEach(member => {
-                        member.style.display = (category === 'all' || member.dataset.category === category) ? 'flex' : 'none';
+                        const memberCategory = member.dataset.category;
+                        
+                        if (selectedCategory === 'all') {
+                            // If "All" is clicked: Show everyone EXCEPT Alumni
+                            if (memberCategory !== 'alumni') {
+                                member.style.display = 'flex';
+                            } else {
+                                member.style.display = 'none';
+                            }
+                        } else {
+                            // If specific button clicked: Show only matches
+                            if (memberCategory === selectedCategory) {
+                                member.style.display = 'flex';
+                            } else {
+                                member.style.display = 'none';
+                            }
+                        }
                     });
                 });
             });
@@ -176,7 +199,6 @@
         function initReadMore() {
             document.querySelectorAll('.member-bio').forEach(bio => {
                 const bioText = bio.querySelector('p');
-                // Check if text is actually long enough to need collapsing (approx 200 chars)
                 if (bioText.textContent.length > 200) {
                     bioText.classList.add('collapsed');
                     bio.insertAdjacentHTML('beforeend', '<button class="read-more-btn">Read more</button>');
@@ -186,49 +208,40 @@
 
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', () => {
-            loadTeam();
-            setupCategoryFilter();
+            setupCategoryFilter(); // Setup listeners first
+            loadTeam();            // Then load data (which triggers the click)
         });
 
-        // Event delegation for dynamically added "Read More" buttons
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('read-more-btn')) {
                 const bioContainer = e.target.closest('.member-bio');
                 const bioText = bioContainer.querySelector('p');
-                
                 bioText.classList.toggle('collapsed');
-                
-                if (bioText.classList.contains('collapsed')) {
-                    e.target.textContent = 'Read more';
-                } else {
-                    e.target.textContent = 'Read less';
-                }
+                e.target.textContent = bioText.classList.contains('collapsed') ? 'Read more' : 'Read less';
             }
         });
+
         // ==========================================
-// MOBILE MENU TOGGLE LOGIC
-// ==========================================
-document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('mobile-menu');
-    const nav = document.querySelector('nav');
+        // MOBILE MENU TOGGLE LOGIC
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('mobile-menu');
+            const nav = document.querySelector('nav');
 
-    if (menuToggle && nav) {
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            
-            // Optional: Change icon from Bars to X
-            const icon = menuToggle.querySelector('i');
-            if (nav.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+            if (menuToggle && nav) {
+                menuToggle.addEventListener('click', () => {
+                    nav.classList.toggle('active');
+                    const icon = menuToggle.querySelector('i');
+                    if (nav.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
             }
         });
-    }
-});
-
     </script>
 </body>
 </html>
