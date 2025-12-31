@@ -1,5 +1,25 @@
 {
     "teaching": [
+
+        {
+            "year": "2025-2026",
+            "term": "Spring",
+            "courses": [
+                
+                {
+                    "id": 4,
+                    "title": "Principles of Neural Design",
+                    "code": "AIL4130",
+                    "role": "Instructor"
+                },
+                {
+                    "id": 1,
+                    "title": "Introduction to Brain-Computer Interfaces",
+                    "code": "AIL7130",
+                    "role": "Instructor"
+                }
+            ]
+        },
         {
             "year": "2025-2026",
             "term": "Fall",
