@@ -12,8 +12,23 @@
             "id": 2,
             "date": "2025-12-12",
             "content": "Shreya, Arpit and Shaheen presented posters at the 12th ACCS held at CBCS, Allahabad",
-            "type": "hire",
+            "type": "conference",
             "highlightedNames": ["Shreya", "Arpit",  "Shaheen"]
+        },
+        {
+            "id": 3,
+            "date": "2025-12-21",
+            "content": "Prof. Vignesh gave an invited talk on Strategies to modulate inhibitory control of actions and thoughts in humans – insights from the brain into human self-control at the 26th International Conference on Frontiers in Yoga research and its Applications (INCOFYRA 2025), S-VYASA University, Bengaluru",
+            "type": "talk",
+            "highlightedNames": ["Prof. Vignesh"]
+        }
+        ,
+        {
+            "id": 2,
+            "date": "2025-09-05",
+            "content": "Prof. Vignesh recieved the Distinguished Teacher Award for exceptional contributions to teaching and overall development of students and alumni, from IIT Jodhpur, received Sep 2025.",
+            "type": "award",
+            "highlightedNames": ["Prof. Vignesh"]
         }
     ]
 }
