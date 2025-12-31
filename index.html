@@ -11,21 +11,44 @@
         /* Home-specific overrides to remove the "boxy" look */
         
         /* 1. Hero Section - Pure Typography */
-        .hero-section {
-            padding: 4rem 0 6rem;
-            max-width: 850px;
-            margin: 0 auto;
-            text-align: center;
-        }
+        /* --- EXISTING CSS TO UPDATE --- */
 
-        .hero-title {
-            font-family: var(--font-heading);
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--color-gray-900);
-            margin-bottom: 2rem;
-            line-height: 1.2;
-        }
+/* 1. Hero Section - Pure Typography */
+.hero-section {
+    padding: 4rem 0 6rem;
+    max-width: 900px; /* Increased slightly to give the image room */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    /* CHANGED: Reduced from 3.5rem to fit better with image */
+    font-size: 2.75rem; 
+    font-weight: 900;
+    color: var(--color-iit-primary);
+    margin-bottom: 1.5rem; /* Slightly reduced margin */
+    line-height: 1.2;
+}
+
+/* --- NEW CSS TO ADD --- */
+
+/* Container for the group photo */
+.hero-image-container {
+    margin-top: 2rem; /* Space between text and image */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* The photo itself */
+.hero-image {
+    max-width: 100%; /* Makes it responsive so it doesn't overflow phones */
+    height: auto;    /* Maintains aspect ratio */
+    border-radius: 12px; /* Gives it nice rounded corners */
+    /* Adds a subtle shadow to make it pop off the page slightly */
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.15); 
+}
 
         .hero-description {
             font-size: 1.15rem;
@@ -203,9 +226,13 @@
         <section class="hero-section">
             <h1 class="hero-title">Welcome to Murali Lab</h1>
             <div class="hero-content">
-                <p class="hero-description">
+                <!--<p class="hero-description">
                     Welcome to the Murali Lab at IIT Jodhpur. 
-                </p>
+                </p>-->
+            </div>
+            
+            <div class="hero-image-container">
+                <img src="images/groupphoto.jpeg" alt="Murali Lab Group Photo" class="hero-image">
             </div>
         </section>
 
