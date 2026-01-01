@@ -213,6 +213,35 @@
             .sleek-news-item { gap: 1rem; flex-direction: column; }
             .sleek-news-date { min-width: auto; margin-bottom: 0.5rem; }
         }
+         /* ==========================================
+   MOBILE FIXES FOR RESEARCH ICONS
+   ========================================== */
+@media (max-width: 900px) {
+    
+    /* 1. Force items to be full width (stack vertically) */
+    .highlight-item {
+        width: 100%;       /* Takes full screen width */
+        max-width: 400px;  /* Prevents them from getting too wide on tablets */
+        margin: 0 auto;    /* Centers the item itself */
+        text-align: center;/* Centers the text */
+    }
+
+    /* 2. Center the Icon inside its box */
+    .icon-box {
+        justify-content: center; /* Move icon to the center (was left) */
+        height: auto;            /* Allow height to adjust naturally */
+        min-height: 100px;       /* Ensure enough room */
+        margin-bottom: 1rem;
+    }
+
+    /* 3. Adjust Icon Size for Mobile */
+    .research-graphic {
+        height: 70px;  /* Slightly smaller than desktop to fit better */
+        /* If you added custom inline styles (like style="height:120px"),
+           add !important here to force uniformity on mobile: */
+        height: 70px !important; 
+    }
+}
     </style>
 </head>
 <body>
@@ -424,5 +453,86 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
     </script>
+   <!--
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        /* Styles for the temporary birthday text */
+        #birthday-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            pointer-events: none; /* Lets clicks pass through */
+            z-index: 9999;
+            transition: opacity 1s ease-out;
+        }
+        
+        .bday-text {
+            font-family: var(--font-heading, sans-serif); /* Uses your site font */
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--color-iit-primary, #003366); /* Uses your lab blue */
+            text-shadow: 2px 2px 0px white, -2px -2px 0px white, 0px 0px 20px rgba(255,255,255,0.8);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem 4rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .bday-sub {
+            font-size: 1.5rem;
+            color: #555;
+            margin-top: 0.5rem;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        /* Mobile adjustment */
+        @media (max-width: 768px) {
+            .bday-text { font-size: 2.5rem; padding: 1.5rem 2rem; }
+        }
+    </style>
+
+    <script>
+        window.addEventListener('load', function() {
+            // 1. Create the text element dynamically
+            const overlay = document.createElement('div');
+            overlay.id = 'birthday-overlay';
+            overlay.innerHTML = `
+                <div class="bday-text">
+                    🎉 Happy Birthday, Prof. Vignesh <br>
+                    <span class="bday-sub">From the Murali Lab Team</span>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+
+            // 2. Fire Confetti
+            var duration = 3 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 10000 };
+            var random = function(min, max) { return Math.random() * (max - min) + min; }
+
+            var interval = setInterval(function() {
+                var timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) return clearInterval(interval);
+                var particleCount = 50 * (timeLeft / duration);
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: random(0.1, 0.3), y: Math.random() - 0.2 } }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: random(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+
+            // 3. Remove text after 4 seconds
+            setTimeout(() => {
+                overlay.style.opacity = '0'; // Fade out
+                setTimeout(() => overlay.remove(), 1000); // Remove from DOM
+            }, 4000);
+        });
+    </script>--> 
 </body>
 </html>
