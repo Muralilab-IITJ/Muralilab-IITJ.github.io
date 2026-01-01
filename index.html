@@ -120,6 +120,24 @@
             line-height: 1.6;
         }
 
+        /* Container that reserves vertical space */
+.icon-box {
+    height: 140px; /* Set this to the height of your TALLEST icon */
+    display: flex;
+    align-items: flex-end; /* This forces the image to sit at the bottom */
+    justify-content: flex-start; /* Aligns image to the left */
+    margin-bottom: 1.5rem; /* The gap between the box and the text */
+}
+
+/* Update the image style */
+.research-graphic {
+    height: 80px;  /* Default size for normal icons */
+    width: auto;
+    display: block;
+    /* Remove the margin-bottom from here, the .icon-box handles it now */
+    margin-bottom: 0; 
+}
+
         /* 3. News Section - Clean List Layout (No Boxes) */
         .sleek-news-section {
             padding: 6rem 0;
@@ -240,27 +258,58 @@
         <section class="research-highlights">
             <h2>Research Areas</h2>
             <div class="highlight-grid">
+                
                 <div class="highlight-item">
+                    <div class="icon-box">
+                        <img src="images/icon-control.png" alt="Control" class="research-graphic"
+                        style="height: 120px;">
+                    </div>
                     <h3>Strategies of Control</h3>
-                    <p></p>
+                    <p>Investigating the neural mechanisms governing how we suppress unwanted actions and thoughts to maintain goal-directed behavior.</p>
                 </div>
+                
                 <div class="highlight-item">
+                    <div class="icon-box">
+                        <img src="images/icon-bci.png" alt="BCI" class="research-graphic"
+                        style="height: 150px;">
+                    </div>
                     <h3>BCI & Motor Systems</h3>
-                    <p></p>
+                    <p>Decoding motor intentions to develop brain-computer interfaces that assist in rehabilitation and restore control over movement.</p>
                 </div>
+                
                 <div class="highlight-item">
+                    <div class="icon-box">
+                        <img src="images/icon-eco.png" alt="Eco" class="research-graphic"
+                        style="height: 140px;">
+                    </div>
                     <h3>Ecologically Valid Neuroscience</h3>
-                    <p></p>
+                    <p>Moving beyond the lab to study brain function in real-world settings, capturing how neural circuits operate during natural behaviors.</p>
                 </div>
+                
                 <div class="highlight-item">
-                    <h3>Functional role of Neural Oscillations </h3>
-                    <p></p>
+                    <div class="icon-box">
+                        <img src="images/icon-waves.png" alt="Waves" class="research-graphic"
+                        style="height: 110px;">
+                    </div>
+                    <h3>Neural Oscillations & Its Functional Role</h3>
+                    <p>Examining the functional significance of transient brain rhythms and "bursts" in coordinating motor control and cognitive processes.</p>
                 </div>
+                
                 <div class="highlight-item">
-                    <h3>Neuro inspired AI</h3>
-                    <p></p>
+                    <div class="icon-box">
+                        <img src="images/icon-ai.png" 
+                             alt="NeuroAI" 
+                             class="research-graphic" 
+                             style="height: 120px;"> 
+                    </div>
+                    <h3>NeuroAI</h3>
+                    <p>Merging neuroscience principles with artificial intelligence to model brain function and develop biologically inspired computational architectures.</p>
                 </div>
+
             </div>
+            
+
+            
         </section>
 
         <section class="sleek-news-section">
