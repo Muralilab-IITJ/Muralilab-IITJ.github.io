@@ -8,7 +8,7 @@
       "authors": "Arpit Shrimankar, Muralidharan V, Dipanjan Roy",
       "journal": "ACCS",
       "link": "leave this",
-      "type": "conference",
+      "type": "presentation",
       "tags": ["Aperiodic Oscillations"]
     },
     {
@@ -18,7 +18,7 @@
   "authors": "Md Shaheen Perwez, Dr. Bhivraj Suthar, Dr. Vignesh Muralidharan",
   "journal": "ACCS",
   "link": "",
-  "type": "conference",
+  "type": "presentation",
   "tags": [
     "Sensorimotor Beta Burst",
     "Force Modulation",
@@ -32,7 +32,7 @@
       "authors": " Shreya Deb, Vinsea Singh, Vignesh Muralidharan, Dipanjan Roy",
       "journal": "ACCS",
       "link": "leave this",
-      "type": "conference",
+      "type": "presentation",
       "tags": ["tACS, multisensory integration, speech perception, alpha oscillations"]
     },
 

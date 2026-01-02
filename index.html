@@ -13,25 +13,66 @@
         /* 1. Hero Section - Pure Typography */
         /* --- EXISTING CSS TO UPDATE --- */
 
-/* 1. Hero Section - Pure Typography */
-.hero-section {
-    padding: 0 0 6rem; /* Reduced from 4rem to 1rem */
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-}
-.hero-title {
-    font-family: var(--font-heading);
-    /* CHANGED: Reduced from 3.5rem to fit better with image */
-    font-size: 2.75rem; 
-    font-weight: 900;
-    color: var(--color-iit-primary);
-    margin-top: 0;      /* <--- ADD THIS LINE to remove default gap */
-    margin-bottom: 1.5rem; /* Slightly reduced margin */
-    line-height: 1.2;
+/* Add/Update these rules in your <style> block */
+
+/* 1. Remove hidden spacing from the main container */
+main {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
 }
 
+/* 2. Hero Section Adjustments */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    
+    /* Ensure no padding here */
+    padding-top: 0 !important; 
+    
+    /* OPTIONAL: If it's still not close enough, use a negative margin 
+       to pull the whole section up underneath the header slightly. */
+    margin-top: 1rem; 
+    
+    min-height: 70vh;
+    padding-bottom: 4rem;
+}
+
+/* 3. Hero Title Adjustments */
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 2.50rem;
+    font-weight: 900;
+    color: var(--color-iit-primary);
+    line-height: 1.2;
+    margin-bottom: 0.5rem; 
+    
+    /* FORCE TOP MARGIN TO ZERO */
+    margin-top: 0 !important; 
+    
+    /* TIP: If you want it even closer, change 0 to a negative number like -10px */
+    /* margin-top: -10px !important; */ 
+}
 /* --- NEW CSS TO ADD --- */
+/* Add style for the New Subtitle */
+.hero-subtitle {
+    font-family: var(--font-heading, sans-serif); /* Uses your site font */
+    font-size: 1.5rem;          /* Smaller than the main title */
+    font-weight: 400;           /* Lighter weight looks elegant */
+    color: var(--color-gray-700, #555); /* Dark gray instead of black */
+    margin-top: 0;
+    margin-bottom: 2rem;        /* Pushes the photo down slightly */
+    line-height: 1.4;
+}
+
+/* Mobile Tweak */
+@media (max-width: 768px) {
+    .hero-subtitle {
+        font-size: 1.1rem;      /* Smaller on phones */
+        padding: 0 1rem;        /* Prevents text hitting screen edges */
+    }
+}
 
 /* Container for the group photo */
 .hero-image-container {
@@ -279,11 +320,11 @@
     <main>
         <section class="hero-section">
             <h1 class="hero-title">Welcome to Murali Lab</h1>
+            
+            <h2 class="hero-subtitle">of Cognitive and Computational Neuroscience</h2>
+            
             <div class="hero-content">
-                <!--<p class="hero-description">
-                    Welcome to the Murali Lab at IIT Jodhpur. 
-                </p>-->
-            </div>
+                </div>
             
             <div class="hero-image-container">
                 <img src="images/groupphoto.jpeg" alt="Murali Lab Group Photo" class="hero-image">
