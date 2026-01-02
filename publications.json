@@ -1,5 +1,15 @@
 {
   "publications": [
+    {
+      "id": 1,
+      "year": "2025",
+      "title": "Meditation as a Bioactive Intervention: Molecular and Neurophysiological Mechanisms Revealed by Connectivity Mapping",
+      "authors": "Aditi Joshi, Deep Patel, Vignesh Muralidharan, Mitali Mukerji",
+      "journal": "bioRxiv",
+      "link": "https://doi.org/10.64898/2025.12.27.696659 ",
+      "type": "preprint",
+      "tags": ["Meditation"]
+    },
 
     {
       "id": 1,

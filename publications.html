@@ -94,7 +94,13 @@
             color: #666;
             font-style: italic;
         }
-
+        /* Add this inside the <style> block */
+        
+        /* Preprints - Purple color */
+        .publication-item[data-type="preprint"] .publication-type {
+            color: #8e44ad; 
+            border-color: #8e44ad;
+        }
         .publication-year { font-style: normal; font-weight: 700; color: #999; }
 
         /* --- NEW TAG STYLES --- */
@@ -205,7 +211,7 @@
             <button class="filter-btn" data-filter="conference">Conference Papers</button>
             
             <button class="filter-btn" data-filter="presentation">Presentations</button>
-            
+            <button class="filter-btn" data-filter="preprint">Preprints</button>
             <button class="filter-btn" data-filter="patent">Patents</button>
         </div>
 
@@ -280,7 +286,11 @@
                                     ${tagsHtml}
                                     
                                     <div class="publication-type">
-                                        ${pub.type === 'presentation' ? 'Conference Presentation' : pub.type}
+                                        ${
+                                            pub.type === 'presentation' ? 'Conference Presentation' : 
+                                            pub.type === 'preprint' ? 'Preprint' : 
+                                            pub.type
+                                        }
                                     </div>
                                 </div> </div>     `}).join('')}
                     </div>
