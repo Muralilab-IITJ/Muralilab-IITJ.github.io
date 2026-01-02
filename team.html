@@ -11,8 +11,14 @@
     <header>
     <div class="header-container">
         <div class="logo-section">
-            <h1><a href="index.html" style="text-decoration: none; color: inherit;">Murali Lab</a></h1>
-            <p>IIT Jodhpur</p>
+            <a href="index.html">
+                <img src="images/iitj_logo_black.png" alt="University Logo" class="university-logo">
+            </a>
+
+            <div class="logo-text-group">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Murali Lab</a></h1>
+                <p>IIT Jodhpur</p>
+            </div>
         </div>
         
         <div class="menu-toggle" id="mobile-menu">
@@ -49,11 +55,17 @@
             <div id="team-loading" class="loading">Loading team members...</div>
         </div>
         
+        <div id="alumni-list-section" class="alumni-list-section">
+            <h3>Btech Project/Design Credits/Internship Alumni</h3>
+            <ul id="alumni-simple-list" class="alumni-simple-list">
+                </ul>
+        </div>
+        
         <div id="team-error" class="error-message" style="display: none;"></div>
 
         <div class="join-cta">
             <h3>Interested in joining our team?</h3>
-            <p>We're always looking for passionate researchers at all levels. Check out our <a href="contact.html">Contact</a> page.</p>
+            <p>We're always looking for passionate researchers at all levels. Check out our <a href="opportunity.html">opportunities</a> page.</p>
         </div>
     </main>
     
@@ -80,13 +92,17 @@
                 if (!response.ok) throw new Error('Failed to load team data');
                 const data = await response.json();
                 
+                // 1. Display Card Profiles (Faculty, PhD, etc.)
                 displayTeam(data.team);
                 
-                // === NEW: Force the "All" filter to run immediately ===
-                // This ensures Alumni are hidden when the page first loads
+                // 2. Display Simple Alumni List (Interns, etc.)
+                if (data.alumni_list) {
+                    displayAlumniList(data.alumni_list);
+                }
+                
+                // 3. Trigger Filter to hide Alumni initially
                 const allBtn = document.querySelector('.category-btn[data-category="all"]');
                 if (allBtn) {
-                    // We need a slight delay to ensure event listeners are attached
                     setTimeout(() => allBtn.click(), 10);
                 }
 
@@ -99,6 +115,7 @@
             }
         }
 
+        // Display Regular Cards
         function displayTeam(members) {
             const teamContainer = document.getElementById('team-container');
             
@@ -122,7 +139,6 @@
                             <div class="member-interests">
                                 ${member.interests.map(interest => `<span class="interest-tag">${interest}</span>`).join('')}
                             </div>
-                            
                             <div class="member-social-row">
                                 ${emailLink}
                                 ${socialLinksHTML}
@@ -135,23 +151,28 @@
             initReadMore();
         }
 
+        // NEW FUNCTION: Display Simple List
+        function displayAlumniList(list) {
+            const listContainer = document.getElementById('alumni-simple-list');
+            
+            if (!list || list.length === 0) return;
+
+            listContainer.innerHTML = list.map(person => `
+                <li>
+                    <strong>${person.name}</strong>
+                    <span class="alumni-details">
+                        (${person.period}, ${person.position} — Now: ${person.current})
+                    </span>
+                </li>
+            `).join('');
+        }
+
         function generateSocialLinks(links) {
             if (!links || Object.keys(links).length === 0) return '';
-            
-            const iconMap = {
-                'linkedin': 'fab fa-linkedin',
-                'scholar': 'fas fa-graduation-cap',
-                'orcid': 'fab fa-orcid',
-                'github': 'fab fa-github',
-                'twitter': 'fab fa-twitter',
-                'website': 'fas fa-globe'
-            };
-            
+            const iconMap = { 'linkedin': 'fab fa-linkedin', 'scholar': 'fas fa-graduation-cap', 'orcid': 'fab fa-orcid', 'github': 'fab fa-github', 'twitter': 'fab fa-twitter', 'website': 'fas fa-globe' };
             let linksHTML = '';
             Object.entries(links).forEach(([platform, url]) => {
-                if (url && iconMap[platform]) {
-                    linksHTML += `<a href="${url}" target="_blank" rel="noopener" title="${platform}"><i class="${iconMap[platform]}"></i></a>`;
-                }
+                if (url && iconMap[platform]) linksHTML += `<a href="${url}" target="_blank" rel="noopener" title="${platform}"><i class="${iconMap[platform]}"></i></a>`;
             });
             return linksHTML;
         }
@@ -170,28 +191,29 @@
                     document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
                     button.classList.add('active');
                     
-                    // 2. Filter Logic
+                    // 2. Get Selection
                     const selectedCategory = button.dataset.category;
-                    
+                    const alumniListSection = document.getElementById('alumni-list-section');
+
+                    // 3. Handle Regular Cards
                     document.querySelectorAll('.team-member').forEach(member => {
                         const memberCategory = member.dataset.category;
-                        
                         if (selectedCategory === 'all') {
-                            // If "All" is clicked: Show everyone EXCEPT Alumni
-                            if (memberCategory !== 'alumni') {
-                                member.style.display = 'flex';
-                            } else {
-                                member.style.display = 'none';
-                            }
+                            // Show everyone EXCEPT Alumni
+                            member.style.display = (memberCategory !== 'alumni') ? 'flex' : 'none';
                         } else {
-                            // If specific button clicked: Show only matches
-                            if (memberCategory === selectedCategory) {
-                                member.style.display = 'flex';
-                            } else {
-                                member.style.display = 'none';
-                            }
+                            // Show specific match
+                            member.style.display = (memberCategory === selectedCategory) ? 'flex' : 'none';
                         }
                     });
+
+                    // 4. Handle The New Alumni List
+                    // Only show this list if "Alumni" button is clicked
+                    if (selectedCategory === 'alumni') {
+                        alumniListSection.style.display = 'block';
+                    } else {
+                        alumniListSection.style.display = 'none';
+                    }
                 });
             });
         }
@@ -206,12 +228,13 @@
             });
         }
 
-        // Initialize when page loads
+        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            setupCategoryFilter(); // Setup listeners first
-            loadTeam();            // Then load data (which triggers the click)
+            setupCategoryFilter(); 
+            loadTeam();            
         });
 
+        // Read More Click Handler
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('read-more-btn')) {
                 const bioContainer = e.target.closest('.member-bio');
@@ -221,13 +244,10 @@
             }
         });
 
-        // ==========================================
-        // MOBILE MENU TOGGLE LOGIC
-        // ==========================================
+        // Mobile Menu
         document.addEventListener('DOMContentLoaded', () => {
             const menuToggle = document.getElementById('mobile-menu');
             const nav = document.querySelector('nav');
-
             if (menuToggle && nav) {
                 menuToggle.addEventListener('click', () => {
                     nav.classList.toggle('active');

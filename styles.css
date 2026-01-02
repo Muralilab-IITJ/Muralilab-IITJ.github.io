@@ -56,13 +56,58 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-
+/*
 .logo-section h1 { font-family: var(--font-heading); font-size: var(--text-xl); margin: 0; }
 .logo-section p { font-size: var(--text-xs); margin: 0; color: var(--color-gray-600); text-transform: uppercase; letter-spacing: 1px; }
+*/
+/* --- UPDATED LOGO SECTION --- */
 
+.logo-section {
+    display: flex;          /* align items in a row */
+    align-items: center;    /* vertically center them */
+    gap: 0.5rem;              /* space between logo and text */
+}
+
+.university-logo {
+    height: 120px;           /* Adjust this to change logo size */
+    width: auto;            /* Keeps the aspect ratio correct */
+}
+
+/* Container for the text so it stacks vertically next to logo */
+.logo-text-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Remove default margins so they stack tightly */
+.logo-section h1 {
+    margin: 0;
+    line-height: 1.1;
+    font-size: 1.8rem; /* Adjust if needed */
+}
+
+.logo-section p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Mobile Tweak: Make logo slightly smaller on phones */
+@media (max-width: 768px) {
+    .university-logo {
+        height: 40px;
+    }
+    .logo-section h1 {
+        font-size: 1.4rem;
+    }
+}
 nav ul { display: flex; list-style: none; gap: 2rem; }
 nav a { font-weight: 600; font-size: var(--text-sm); color: var(--color-gray-600); text-transform: uppercase; text-decoration: none; }
 nav a:hover, nav a.active { color: var(--color-iit-primary); }
+
+
+
 
 /* ===== MAIN CONTENT ===== */
 main {
@@ -348,6 +393,41 @@ footer { background-color: var(--color-gray-100); padding: 3rem 1.5rem; border-t
     iframe {
         height: 300px; /* Smaller maps */
     }
+}
+
+
+/* Styling for the Text-Only Alumni List */
+.alumni-list-section {
+    max-width: 800px; /* Match your layout width */
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    display: none; /* Hidden by default */
+}
+
+.alumni-list-section h3 {
+    font-family: var(--font-heading, sans-serif);
+    color: var(--color-gray-900, #333);
+    border-bottom: 2px solid var(--color-gray-200, #eee);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.alumni-simple-list {
+    list-style: none;
+    padding: 0;
+}
+
+.alumni-simple-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 1.05rem;
+    color: #333;
+}
+
+.alumni-details {
+    color: #666;
+    font-size: 0.95rem;
+    margin-left: 0.5rem;
 }
 /* =========================================
    FOOTER / DEVELOPER CREDIT STYLES

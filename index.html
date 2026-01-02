@@ -59,14 +59,14 @@
         }
 /* 2. Research Highlights - Centered Layout */
         .research-highlights {
-            padding: 0.5rem 0;
+            padding: 1rem 0;
             border-top: 1px solid var(--color-gray-200);
         }
 
         .research-highlights h2 {
             font-family: var(--font-heading);
             font-size: 2rem;
-            margin-bottom: 4rem;
+            margin-bottom: 6rem;
             text-align: center;
             color: var(--color-gray-900);
         }
@@ -135,7 +135,7 @@
     width: auto;
     display: block;
     /* Remove the margin-bottom from here, the .icon-box handles it now */
-    margin-bottom: 0; 
+    margin-bottom: 0.5rem; 
 }
 
         /* 3. News Section - Clean List Layout (No Boxes) */
@@ -248,8 +248,14 @@
     <header>
     <div class="header-container">
         <div class="logo-section">
-            <h1><a href="index.html" style="text-decoration: none; color: inherit;">Murali Lab</a></h1>
-            <p>IIT Jodhpur</p>
+            <a href="index.html">
+                <img src="images/iitj_logo_black.png" alt="University Logo" class="university-logo">
+            </a>
+
+            <div class="logo-text-group">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Murali Lab</a></h1>
+                <p>IIT Jodhpur</p>
+            </div>
         </div>
         
         <div class="menu-toggle" id="mobile-menu">
@@ -291,7 +297,7 @@
                 <div class="highlight-item">
                     <div class="icon-box">
                         <img src="images/icon-control.png" alt="Control" class="research-graphic"
-                        style="height: 120px;">
+                        style="height: 140px;">
                     </div>
                     <h3>Strategies of Control</h3>
                     <p>Investigating the neural mechanisms governing how we suppress unwanted actions and thoughts to maintain goal-directed behavior.</p>
@@ -300,9 +306,9 @@
                 <div class="highlight-item">
                     <div class="icon-box">
                         <img src="images/icon-bci.png" alt="BCI" class="research-graphic"
-                        style="height: 150px;">
+                        style="height: 200px;">
                     </div>
-                    <h3>BCI & Motor Systems</h3>
+                    <h3>BCI & Motor Control</h3>
                     <p>Decoding motor intentions to develop brain-computer interfaces that assist in rehabilitation and restore control over movement.</p>
                 </div>
                 
@@ -320,18 +326,18 @@
                         <img src="images/icon-waves.png" alt="Waves" class="research-graphic"
                         style="height: 110px;">
                     </div>
-                    <h3>Neural Oscillations & Its Functional Role</h3>
+                    <h3>Functional Role of Neural Oscillations</h3>
                     <p>Examining the functional significance of transient brain rhythms and "bursts" in coordinating motor control and cognitive processes.</p>
                 </div>
                 
                 <div class="highlight-item">
                     <div class="icon-box">
                         <img src="images/icon-ai.png" 
-                             alt="NeuroAI" 
+                             alt="Neuro-Inspired AI" 
                              class="research-graphic" 
                              style="height: 120px;"> 
                     </div>
-                    <h3>NeuroAI</h3>
+                    <h3>Neuro-Inspired AI</h3>
                     <p>Merging neuroscience principles with artificial intelligence to model brain function and develop biologically inspired computational architectures.</p>
                 </div>
 

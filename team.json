@@ -157,5 +157,19 @@
                 "github": ""
             }
         }
-    ]
+    ],
+  "alumni_list": [
+    {
+      "name": "Gouri Patidar",
+      "period": "Aug 2024-Apr 2025",
+      "position": "Design Credit Project",
+      "current": ""
+    },
+    {
+      "name": "Sushrut Barmate",
+      "period": "Aug 2024-Apr 2025",
+      "position": "Design Credit Project",
+      "current": ""
+    }
+  ]
 }
