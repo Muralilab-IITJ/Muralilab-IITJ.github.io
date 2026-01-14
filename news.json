@@ -1,22 +1,16 @@
 {
     "news": [
         
+        
         {
-            "id": 1,
-            "date": "2025-08-18",
-            "content": "Ashish V joined the lab as a Project Assistant",
-            "type": "hire",
-            "highlightedNames": ["Ashish V"]
+            "id": 5,
+            "date": "2026-01-8",
+            "content": "Arpit and Shreya presented posters at the BrainDy 2026",
+            "type": "talk",
+            "highlightedNames": ["Prof. Vignesh"]
         },
         {
-            "id": 2,
-            "date": "2025-12-12",
-            "content": "Shreya, Arpit and Shaheen presented posters at the 12th ACCS held at CBCS, Allahabad",
-            "type": "conference",
-            "highlightedNames": ["Shreya", "Arpit",  "Shaheen"]
-        },
-        {
-            "id": 3,
+            "id": 4,
             "date": "2025-12-21",
             "content": "Prof. Vignesh gave an invited talk on Strategies to modulate inhibitory control of actions and thoughts in humans – insights from the brain into human self-control at the 26th International Conference on Frontiers in Yoga research and its Applications (INCOFYRA 2025), S-VYASA University, Bengaluru",
             "type": "talk",
@@ -24,11 +18,26 @@
         }
         ,
         {
+            "id": 3,
+            "date": "2025-12-12",
+            "content": "Shreya, Arpit and Shaheen presented posters at the 12th ACCS held at CBCS, Allahabad",
+            "type": "conference",
+            "highlightedNames": ["Shreya", "Arpit",  "Shaheen"]
+        },
+        
+        {
             "id": 2,
             "date": "2025-09-05",
             "content": "Prof. Vignesh recieved the Distinguished Teacher Award for exceptional contributions to teaching and overall development of students and alumni, from IIT Jodhpur.",
             "type": "award",
             "highlightedNames": ["Prof. Vignesh"]
+        },
+        {
+            "id": 1,
+            "date": "2025-08-18",
+            "content": "Ashish V joined the lab as a Project Assistant",
+            "type": "hire",
+            "highlightedNames": ["Ashish V"]
         }
     ]
 }
