@@ -48,6 +48,9 @@
             <button class="category-btn" data-category="masters">Master's Students</button>
             <button class="category-btn" data-category="undergraduate">Undergraduate Students</button>
             <button class="category-btn" data-category="staff">Research Staff</button>
+            
+            <button class="category-btn" data-category="executive">Executive M. Tech</button>
+            
             <button class="category-btn" data-category="alumni">Alumni</button>
         </div>
 
@@ -55,10 +58,16 @@
             <div id="team-loading" class="loading">Loading team members...</div>
         </div>
         
-        <div id="alumni-list-section" class="alumni-list-section">
+        <div id="alumni-list-section" class="alumni-list-section" style="display: none;">
             <h3>Btech Project/Design Credits/Internship Alumni</h3>
             <ul id="alumni-simple-list" class="alumni-simple-list">
-                </ul>
+            </ul>
+        </div>
+
+        <div id="executive-list-section" class="alumni-list-section" style="display: none;">
+            <h3>Executive M. Tech Students</h3>
+            <ul id="executive-simple-list" class="alumni-simple-list">
+            </ul>
         </div>
         
         <div id="team-error" class="error-message" style="display: none;"></div>
@@ -78,7 +87,7 @@
         </div>
     </footer>
 
-    <script>
+   <script>
         // ==========================================
         // TEAM LOADING & DISPLAY LOGIC
         // ==========================================
@@ -92,15 +101,20 @@
                 if (!response.ok) throw new Error('Failed to load team data');
                 const data = await response.json();
                 
-                // 1. Display Card Profiles (Faculty, PhD, etc.)
+                // 1. Display Card Profiles
                 displayTeam(data.team);
                 
-                // 2. Display Simple Alumni List (Interns, etc.)
+                // 2. Display Alumni List
                 if (data.alumni_list) {
                     displayAlumniList(data.alumni_list);
                 }
+
+                // 3. Display Executive List (NEW)
+                if (data.executive_list) {
+                    displayExecutiveList(data.executive_list);
+                }
                 
-                // 3. Trigger Filter to hide Alumni initially
+                // 4. Trigger Filter to hide lists initially
                 const allBtn = document.querySelector('.category-btn[data-category="all"]');
                 if (allBtn) {
                     setTimeout(() => allBtn.click(), 10);
@@ -151,17 +165,29 @@
             initReadMore();
         }
 
-        // NEW FUNCTION: Display Simple List
+        // Display Alumni List
         function displayAlumniList(list) {
             const listContainer = document.getElementById('alumni-simple-list');
-            
             if (!list || list.length === 0) return;
-
             listContainer.innerHTML = list.map(person => `
                 <li>
                     <strong>${person.name}</strong>
                     <span class="alumni-details">
                         (${person.period}, ${person.position} — Now: ${person.current})
+                    </span>
+                </li>
+            `).join('');
+        }
+
+        // NEW: Display Executive List
+        function displayExecutiveList(list) {
+            const listContainer = document.getElementById('executive-simple-list');
+            if (!list || list.length === 0) return;
+            listContainer.innerHTML = list.map(person => `
+                <li>
+                    <strong>${person.name}</strong>
+                    <span class="alumni-details">
+                        (${person.details})
                     </span>
                 </li>
             `).join('');
@@ -193,26 +219,43 @@
                     
                     // 2. Get Selection
                     const selectedCategory = button.dataset.category;
-                    const alumniListSection = document.getElementById('alumni-list-section');
+                    
+                    // Elements to toggle
+                    const alumniSection = document.getElementById('alumni-list-section');
+                    const executiveSection = document.getElementById('executive-list-section');
+                    const teamMembers = document.querySelectorAll('.team-member');
 
-                    // 3. Handle Regular Cards
-                    document.querySelectorAll('.team-member').forEach(member => {
-                        const memberCategory = member.dataset.category;
-                        if (selectedCategory === 'all') {
-                            // Show everyone EXCEPT Alumni
-                            member.style.display = (memberCategory !== 'alumni') ? 'flex' : 'none';
-                        } else {
-                            // Show specific match
-                            member.style.display = (memberCategory === selectedCategory) ? 'flex' : 'none';
-                        }
-                    });
+                    // 3. LOGIC SWITCH
+                    
+                    // CASE A: Executive Tab Clicked
+                    if (selectedCategory === 'executive') {
+                        alumniSection.style.display = 'none';
+                        executiveSection.style.display = 'block';
+                        // Hide all card members
+                        teamMembers.forEach(m => m.style.display = 'none');
+                    
+                    // CASE B: Alumni Tab Clicked
+                    } else if (selectedCategory === 'alumni') {
+                        alumniSection.style.display = 'block';
+                        executiveSection.style.display = 'none';
+                        // Hide all card members
+                        teamMembers.forEach(m => m.style.display = 'none');
 
-                    // 4. Handle The New Alumni List
-                    // Only show this list if "Alumni" button is clicked
-                    if (selectedCategory === 'alumni') {
-                        alumniListSection.style.display = 'block';
+                    // CASE C: Regular Categories (All, Faculty, PhD...)
                     } else {
-                        alumniListSection.style.display = 'none';
+                        alumniSection.style.display = 'none';
+                        executiveSection.style.display = 'none';
+                        
+                        // Show/Hide cards based on category
+                        teamMembers.forEach(member => {
+                            const memberCategory = member.dataset.category;
+                            // Note: We exclude alumni/executive from 'all' so they don't double dip
+                            if (selectedCategory === 'all') {
+                                member.style.display = (memberCategory !== 'alumni' && memberCategory !== 'executive') ? 'flex' : 'none';
+                            } else {
+                                member.style.display = (memberCategory === selectedCategory) ? 'flex' : 'none';
+                            }
+                        });
                     }
                 });
             });

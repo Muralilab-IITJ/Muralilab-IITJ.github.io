@@ -158,6 +158,26 @@
             }
         }
     ],
+
+    
+    "executive_list": [
+        {
+            "name": "Manoj Tiwari",
+            "details": "Executive M. Tech AI"
+        },
+        {
+            "name": "Rajesh Kumar Mishra",
+            "details": "Executive M. Tech AI"
+        },
+        {
+            "name": "Sizon Nayak ",
+            "details": "Executive M. Tech AI"
+        },
+        {
+            "name": "Sujoy Acharya",
+            "details": "Executive M. Tech AI"
+        }
+    ],
   "alumni_list": [
     {
       "name": "Gouri Patidar",

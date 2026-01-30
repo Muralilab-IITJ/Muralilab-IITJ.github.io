@@ -29,6 +29,13 @@
                     "title": "Sensation and Perception",
                     "code": "AIL7240",
                     "role": "Instructor"
+                },
+                {
+                    "id": 2,
+                    "title": "Advanced Artificial Intelligence",
+                    "code": "CSL7580",
+                    "program": "PGD in AI",
+                    "role": "Co-instructor"
                 }
             ]
         },
