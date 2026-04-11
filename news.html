@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Archive | Murali Lab | IIT Jodhpur</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="index.html">
+                    <img src="images/iitj_logo_black.png" alt="University Logo" class="university-logo">
+                </a>
+                <div class="logo-text-group">
+                    <h1><a href="index.html" style="text-decoration: none; color: inherit;">Murali Lab</a></h1>
+                    <p>IIT Jodhpur</p>
+                </div>
+            </div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+                    <li><a href="opportunity.html">Opportunities</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <h2 class="page-title">All News & Updates</h2>
+        
+        <div id="news-archive-container" class="news-archive-container">
+            <div class="loading">Loading news archive...</div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="copyright">
+                <p>© 2026 Murali Lab | IIT Jodhpur</p>
+                <p class="developer-credit">Developed by: Ashish V., Dr. Vignesh & Murali Lab members</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. FUNCTION TO LOAD ALL NEWS ---
+        async function loadAllNews() {
+            const container = document.getElementById('news-archive-container');
+            
+            try {
+                const response = await fetch('news.json');
+                if (!response.ok) throw new Error(`Status: ${response.status}`);
+                const data = await response.json();
+                
+                if (!data.news || data.news.length === 0) {
+                    container.innerHTML = '<div>No updates available.</div>';
+                    return;
+                }
+                
+                // Sort by date (newest first)
+                const sortedNews = [...data.news].sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                // Render the news
+                container.innerHTML = sortedNews.map(item => {
+                    // This requires the helper function below!
+                    const mainContent = highlightNames(item.content, item.highlightedNames);
+                    
+                    const extraDetails = item.details 
+                        ? `<p class="archive-details">${item.details}</p>` 
+                        : '';
+                        
+                    // Check if an image exists and create the HTML for it
+                    const newsImage = item.image 
+                        ? `<img src="${item.image}" alt="${item.imageAlt || 'News image'}" class="archive-image">` 
+                        : '';
+
+                    return `
+                        <div class="archive-item">
+                            <div class="archive-date">${formatDate(item.date)}</div>
+                            <div class="archive-content">
+                                <p class="archive-main-text">${mainContent}</p>
+                                ${extraDetails}
+                                ${newsImage}
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+                
+            } catch (error) {
+                console.error('News Load Error:', error);
+                container.innerHTML = '<div class="error-message">Unable to load the news archive.</div>';
+            }
+        }
+
+        // --- 2. HELPER FUNCTIONS ---
+        // (These were missing!)
+        function highlightNames(content, names) {
+            if (!names || names.length === 0) return content;
+            let highlighted = content;
+            names.forEach(name => {
+                const regex = new RegExp(`\\b${name}\\b`, 'gi');
+                highlighted = highlighted.replace(regex, `<strong>${name}</strong>`);
+            });
+            return highlighted;
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        // --- 3. INITIALIZATION & MOBILE MENU ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // This is the command that actually tells the page to run the code above!
+            loadAllNews(); 
+
+            // This ensures your hamburger menu works on mobile
+            const menuToggle = document.getElementById('mobile-menu');
+            const nav = document.querySelector('nav');
+            if (menuToggle && nav) {
+                menuToggle.addEventListener('click', () => {
+                    nav.classList.toggle('active');
+                    const icon = menuToggle.querySelector('i');
+                    if (nav.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

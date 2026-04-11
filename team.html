@@ -210,6 +210,9 @@
         // ==========================================
         // UPDATED FILTER LOGIC
         // ==========================================
+        // ==========================================
+        // UPDATED FILTER LOGIC
+        // ==========================================
         function setupCategoryFilter() {
             document.querySelectorAll('.category-btn').forEach(button => {
                 button.addEventListener('click', () => {
@@ -231,15 +234,15 @@
                     if (selectedCategory === 'executive') {
                         alumniSection.style.display = 'none';
                         executiveSection.style.display = 'block';
-                        // Hide all card members
-                        teamMembers.forEach(m => m.style.display = 'none');
+                        // Show cards only if they have category "executive"
+                        teamMembers.forEach(m => m.style.display = (m.dataset.category === 'executive') ? 'flex' : 'none');
                     
                     // CASE B: Alumni Tab Clicked
                     } else if (selectedCategory === 'alumni') {
                         alumniSection.style.display = 'block';
                         executiveSection.style.display = 'none';
-                        // Hide all card members
-                        teamMembers.forEach(m => m.style.display = 'none');
+                        // THIS IS THE FIX: Show cards that have category "alumni"
+                        teamMembers.forEach(m => m.style.display = (m.dataset.category === 'alumni') ? 'flex' : 'none');
 
                     // CASE C: Regular Categories (All, Faculty, PhD...)
                     } else {
