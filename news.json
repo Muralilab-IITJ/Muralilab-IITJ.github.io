@@ -1,6 +1,14 @@
 {
     "news": [
         {
+            "id": 7,
+            "date": "2026-05-15",
+            "content": "Ragavi and Prakriti joined the lab as summer interns.",
+            "highlightedNames": [""],
+            "details":"",
+            "image":"images/symposium-talk14mar26.jpeg"
+        },
+        {
             "id": 6,
             "date": "2026-03-14",
             "content": "Dr. Vignesh gave an invited talk on BCI Frameworks for Enhancing Neuroplasticity in Stroke Recovery at the International Stroke Rehabilitation Symposium 2026 in Rajasthan.",
