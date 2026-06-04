@@ -1,7 +1,20 @@
 {
   "publications": [
+
     {
-      "id": 1,
+      "id": 26,
+      "year": "2026",
+      "title": "Investigating sensorimotor beta burst dynamics as a robust biomarker for graded force modulation in humans",
+      "authors": "Md Shaheen Perwez, James J Bonaiuto, Bhivraj Suthar, Vignesh Muralidharan",
+      "journal": "bioRxiv",
+      "link": "https://doi.org/10.64898/2026.05.07.723396 ",
+      "type": "preprint",
+      "tags": ["Motor Control","Sensorimotor Beta Burst",
+    "Force Modulation",
+    "BCI"]
+    },
+    {
+      "id": 25,
       "year": "2025",
       "title": "Meditation as a Bioactive Intervention: Molecular and Neurophysiological Mechanisms Revealed by Connectivity Mapping",
       "authors": "Aditi Joshi, Deep Patel, Vignesh Muralidharan, Mitali Mukerji",
@@ -12,7 +25,7 @@
     },
 
     {
-      "id": 1,
+      "id": 24,
       "year": "2025",
       "title": "Characterizing Aperiodic neural dynamics during response inhibition",
       "authors": "Arpit Shrimankar, Muralidharan V, Dipanjan Roy",
@@ -22,7 +35,7 @@
       "tags": ["Aperiodic Oscillations"]
     },
     {
-  "id": 1,
+  "id": 23,
   "year": "2025",
   "title": "Investigating sensorimotor beta burst dynamics as a robust biomarker for graded force modulation in humans",
   "authors": "Md Shaheen Perwez, Dr. Bhivraj Suthar, Dr. Vignesh Muralidharan",
@@ -36,7 +49,7 @@
     },
 
     {
-      "id": 1,
+      "id": 22,
       "year": "2025",
       "title": "Modulation of the speed of Intrinsic Alpha Frequency (IAF) with tACS modulates variability of illusory speech perception",
       "authors": " Shreya Deb, Vinsea Singh, Vignesh Muralidharan, Dipanjan Roy",
@@ -47,7 +60,7 @@
     },
 
     {
-      "id": "",
+      "id": 21,
       "year": "2024",
       "title": "System and method for handling rehabilitation strategy training for subject.",
       "authors": "V Srinivasa Chakravarthy, Vignesh Muralidharan, Rukhmani Narayanamurthy, Samyukta Jayakumar and Sundari Elango",
@@ -58,7 +71,7 @@
     },
 
     {
-      "id": 1,
+      "id": 20,
       "year": "2023",
       "title": "Transient oscillations as computations for cognition: Analysis, modeling and function",
       "authors": "Schmidt R, Rose J, Muralidharan V",
@@ -69,7 +82,7 @@
     },
     
     {
-      "id": 4,
+      "id": 19,
       "year": "2023",
       "title": "Two modes of midfrontal theta suggest a role in conflict and error processing",
       "authors": "Muralidharan V, Aron AR, Cohen MX, Schmidt R",
@@ -80,7 +93,7 @@
     },
     
     {
-      "id": 2,
+      "id": 18,
       "year": "2022",
       "title": "Failing to attend versus failing to stop: Single-trial decomposition of action-stopping in the stop signal task",
       "authors": "Hannah R, Muralidharan V, Aron AR",
@@ -90,7 +103,7 @@
       "tags": ["Action-stopping" , "EEG"]
     },
     {
-      "id": 5,
+      "id": 17,
       "year": "2022",
       "title": "Transient beta modulates decision thresholds during human action-stopping",
       "authors": "Muralidharan V, Aron AR, Schmidt R",
@@ -100,7 +113,7 @@
       "tags": ["Action-stopping" , "EEG"]
     },
     {
-      "id": 6,
+      "id": 16,
       "year": "2022",
       "title": "Motor cortex oscillates at its intrinsic post-movement beta rhythm following real (but not sham) single pulse, rhythmic and arrhythmic transcranial magnetic stimulation",
       "authors": "Hannah R, Muralidharan V, Aron AR",
@@ -110,7 +123,7 @@
       "tags": ["TMS","Entrainment", "EEG"]
     },
     {
-      "id": 7,
+      "id": 15,
       "year": "2021",
       "title": "Does action-stopping involve separate pause and cancel processes? A view from premotor cortex",
       "authors": "Hannah R, Jana S, Muralidharan V",
@@ -121,7 +134,7 @@
     },
     
     {
-      "id": 8,
+      "id": 14,
       "year": "2021",
       "title": "Behavioral induction of a high beta state in sensorimotor cortex leads to movement slowing",
       "authors": "Muralidharan V, Aron AR",
@@ -132,7 +145,7 @@
     },
     
     {
-      "id": 9,
+      "id": 13,
       "year": "2020",
       "title": "Temporally-precise disruption of prefrontal cortex informed by the timing of beta bursts impairs human action-stopping",
       "authors": "Hannah R, Muralidharan V, Sundby KK, Aron AR",
@@ -142,7 +155,7 @@
       "tags": ["Action-stopping" ]
     },
     {
-      "id": 10,
+      "id": 12,
       "year": "2020",
       "title": "Temporal cascade of frontal, motor and muscle processes underlying human action-stopping",
       "authors": "Jana S, Hannah R, Muralidharan V, Aron AR",
@@ -162,7 +175,7 @@
       "tags": ["Modelling","Stroke","Basal ganglia"]
     },
     {
-      "id": 12,
+      "id": 10,
       "year": "2019",
       "title": "Preparing to stop action increases beta band power in contralateral sensorimotor cortex",
       "authors": "Muralidharan V, Yu X, Cohen MX, Aron AR",
@@ -174,7 +187,7 @@
     
 
     {
-      "id": 13,
+      "id": 9,
       "year": "2018",
       "title": "Modeling the effect of environmental geometries on grid cell representations",
       "authors": "Jayakumar S, Narayanamurthy R, Ramesh R, Soman K, Muralidharan V, Chakravarthy S",
@@ -185,7 +198,7 @@
     },
 
     {
-      "id": 14,
+      "id": 8,
       "year": "2018",
       "title": "An oscillatory neural autoencoder based on frequency modulation and multiplexing",
       "authors": "Soman K, Muralidharan V, Chakravarthy VS",
@@ -195,7 +208,7 @@
       "tags": ["Computational Neuroscience"]
     },
     {
-      "id": 15,
+      "id": 7,
       "year": "2018",
       "title": "A unified hierarchical oscillatory network model of head direction cells, spatially periodic cells, and place cells",
       "authors": "Soman K, Muralidharan V, Chakravarthy VS",
@@ -206,7 +219,7 @@
     },
 
     {
-      "id": 16,
+      "id": 6,
       "year": "2018",
       "title": "A model of multisensory integration and its influence on hippocampal spatial cell responses",
       "authors": "Soman K, Muralidharan V, Chakravarthy VS",
@@ -216,7 +229,7 @@
       "tags": ["Modelling","Computational Neuroscience"]
     },
     {
-      "id": 17,
+      "id": 5,
       "year": "2018",
       "title": "A Basal Ganglia Model of Freezing of Gait in Parkinson's Disease",
       "authors": "Muralidharan V, Balasubramani PP, Chakravarthy VS, Moustafa AA",
@@ -227,7 +240,7 @@
     },
 
     {
-      "id": 18,
+      "id": 4,
       "year": "2018",
       "title": "A Cortico-Basal Ganglia Model to Understand the Neural Dynamics of Targeted Reaching in Normal and Parkinson's Conditions",
       "authors": "Muralidharan V, Balasubramani PP, Mehta H, Jahanshahi M,Chakravarthy VS",
@@ -238,7 +251,7 @@
     },
   
     {
-      "id": 19,
+      "id": 3,
       "year": "2017",
       "title": "A biologically plausible architecture of the striatum to solve context-dependent reinforcement learning tasks",
       "authors": "Shivkumar S, Muralidharan V, Chakravarthy VS",
@@ -248,7 +261,7 @@
       "tags": ["Modelling","Basal ganglia"]
     },
     {
-      "id": 20,
+      "id": 2,
       "year": "2017",
       "title": "A Neurocomputational Model of the Effect of Cognitive Load on Freezing of Gait in Parkinson's Disease",
       "authors": "Muralidharan V, Balasubramani PP, Chakravarthy VS, Lewis SJ, Moustafa AA",
@@ -258,7 +271,7 @@
       "tags": ["Modelling","Parkinson's disease"]
     },
     {
-      "id": 21,
+      "id": 1,
       "year": "2014",
       "title": "A computational model of altered gait patterns in Parkinson's disease patients negotiating narrow doorways",
       "authors": "Muralidharan V, Balasubramani PP, Chakravarthy VS, Gilat R, Lewis SJ, Moustafa AA",
