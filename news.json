@@ -1,12 +1,21 @@
 {
     "news": [
         {
+            "id": 8,
+            "date": "2026-07-27",
+            "content": "Mohammed Aflah joined the team as a PhD scholar.",
+            "type": "hire",
+            "highlightedNames": [""]
+            
+        },
+        {
             "id": 7,
             "date": "2026-05-15",
             "content": "Ragavi and Prakriti joined the lab as summer interns.",
-            "highlightedNames": [""],
-            "details":"",
-            "image":"images/symposium-talk14mar26.jpeg"
+            "type": "hire",
+            "highlightedNames": [""]
+            
+            
         },
         {
             "id": 6,
