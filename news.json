@@ -1,6 +1,15 @@
 {
     "news": [
         {
+            "id": 9,
+            "date": "2026-08-02",
+            "content": "Dr. Vignesh recieved the Dr. Vandana Sharma Memorial Award for Teaching Innovation 2026 at the IIT Jodhpur Foundation Day Celebrations.",
+            "type": "award",
+            "highlightedNames": ["Dr. Vignesh"],
+            "details":"",
+            "image":"images/drvignesh_teaching_innov_award_2026.jpeg"
+        },
+        {
             "id": 8,
             "date": "2026-07-24",
             "content": "Mohammed Aflah joined the team as a PhD scholar.",
