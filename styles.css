@@ -511,3 +511,29 @@ footer { background-color: var(--color-gray-100); padding: 3rem 1.5rem; border-t
     color: #bdc3c7;     /* Light gray color */
     margin: 0;
 }
+
+/* new opportunties badge*/
+.badge-link {
+    position: relative;
+    display: inline-block;
+}
+/* new opportunties badge style*/
+.badge-top-right {
+    position: absolute;
+    top: -6px;
+    right: -18px;
+    background-color: #d90429; /* Highlight red */
+    color: #ffffff;
+    font-size: 0.55rem;
+    font-weight: 800;
+    padding: 2px 4px;
+    border-radius: 4px;
+    line-height: 1;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+}
+/* highlight text in red. */
+.text-highlight {
+    color: #d90429; /* Highlight color */
+    font-weight: 700;
+}
