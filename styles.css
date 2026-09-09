@@ -102,7 +102,7 @@ header {
         font-size: 1.4rem;
     }
 }
-nav ul { display: flex; list-style: none; gap: 2rem; }
+nav ul { display: flex; list-style: none; gap: 1.5rem; }
 nav a { font-weight: 600; font-size: var(--text-sm); color: var(--color-gray-600); text-transform: uppercase; text-decoration: none; }
 nav a:hover, nav a.active { color: var(--color-iit-primary); }
 
@@ -347,12 +347,17 @@ footer { background-color: var(--color-gray-100); padding: 3rem 1.5rem; border-t
         width: 100%;
         border-bottom: 1px solid #f0f0f0;
     }
-
+    /*
     .nav-links a {
         display: block;
         padding: 15px;
         width: 100%;
-    }
+    }*/
+    .nav-links a {
+    display: inline-block; /* Return to word-width containing absolute positions */
+    padding: 15px;         /* Maintain large touch target padding */
+    width: auto;           /* Do not expand full width */
+}
 
     /* 2. GLOBAL LAYOUT ADJUSTMENTS */
     main {
@@ -511,7 +516,6 @@ footer { background-color: var(--color-gray-100); padding: 3rem 1.5rem; border-t
     color: #bdc3c7;     /* Light gray color */
     margin: 0;
 }
-
 /* new opportunties badge*/
 .badge-link {
     position: relative;
