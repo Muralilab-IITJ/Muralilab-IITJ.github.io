@@ -1,5 +1,30 @@
 {
     "teaching": [
+    	{
+            "year": "2026-2027",
+            "term": "Fall",
+            "courses": [
+                
+                { "id": 1,
+                    "title": "Sensation and Perception",
+                    "code": "AIL7240",
+                    "role": "Instructor"
+                   
+                },
+                {"id": 6,
+                    "title": "Methods and Tools of Science of Intelligence",
+                    "code": "AIP4010",
+                    "role": "Instructor"
+                    
+                },
+                {"id": 15,
+                    "title": "Basics of Computational Neuroscience ",
+                    "code": "AIL4230",
+                    "role": "Co-instructor"
+                    
+                }
+            ]
+        },
 
         {
             "year": "2025-2026",
