@@ -103,8 +103,25 @@ header {
     }
 }
 nav ul { display: flex; list-style: none; gap: 1.5rem; }
-nav a { font-weight: 600; font-size: var(--text-sm); color: var(--color-gray-600); text-transform: uppercase; text-decoration: none; }
-nav a:hover, nav a.active { color: var(--color-iit-primary); }
+nav a { 
+    font-weight: 600; 
+    font-size: var(--text-sm); 
+    color: var(--color-gray-600); 
+    text-transform: uppercase; 
+    text-decoration: none; 
+    padding: 0.4rem 0.6rem; 
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+nav a:hover { 
+    color: var(--color-iit-primary); 
+    background-color: var(--color-gray-100);
+}
+nav a.active { 
+    color: var(--color-iit-primary); 
+    background-color: var(--color-iit-primary);
+    color: white;
+}
 
 /* --- PASTE THE FIX HERE (Outside the media query) --- */
 .nav-links {
@@ -357,7 +374,17 @@ footer { background-color: var(--color-gray-100); padding: 3rem 1.5rem; border-t
     display: inline-block; /* Return to word-width containing absolute positions */
     padding: 15px;         /* Maintain large touch target padding */
     width: auto;           /* Do not expand full width */
+    border-radius: 4px;
+    transition: all 0.2s ease;
 }
+    .nav-links a.active {
+        background-color: var(--color-iit-primary);
+        color: white !important;
+    }
+    .nav-links a:hover {
+        background-color: var(--color-gray-100);
+        color: var(--color-iit-primary);
+    }
 
     /* 2. GLOBAL LAYOUT ADJUSTMENTS */
     main {
@@ -520,6 +547,13 @@ footer { background-color: var(--color-gray-100); padding: 3rem 1.5rem; border-t
 .badge-link {
     position: relative;
     display: inline-block;
+}
+.badge-link > a.active,
+.badge-link.active > a {
+    background-color: var(--color-iit-primary);
+    color: white;
+    border-radius: 4px;
+    padding: 0.4rem 0.6rem;
 }
 /* new opportunties badge style*/
 .badge-top-right {

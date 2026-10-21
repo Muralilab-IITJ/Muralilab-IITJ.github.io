@@ -2,6 +2,39 @@
   "publications": [
 
     {
+      "id": 29,
+      "year": "2026",
+      "title": "Modulation of the speed of Intrinsic Alpha Frequency (IAF) with tACS modulates variability of illusory speech perception",
+      "authors": "Shreya Deb, Debottam Bhunia, Vinsea AV Singh, Vignesh Muralidharan, Dipanjan Roy",
+      "journal": "bioRxiv",
+      "link": "https://doi.org/10.64898/2026.10.07.756537",
+      "type": "preprint",
+      "tags": ["tACS", "alpha oscillations", "speech perception", "multisensory integration"]
+    },
+
+    {
+      "id": 28,
+      "year": "2026",
+      "title": "Impaired value estimation over space explains turn-induced freezing of gait in Parkinson's disease: A cortico-basal ganglia-inspired reinforcement learning model",
+      "authors": "Neermita Bhattacharya, Sandeep Sathyanandan Nair, V Srinivasa Chakravarthy, Vignesh Muralidharan",
+      "journal": "bioRxiv",
+      "link": "https://doi.org/10.64898/2026.10.01.755546",
+      "type": "preprint",
+      "tags": ["Parkinson's disease", "freezing of gait", "computational modeling", "reinforcement learning", "basal ganglia"]
+    },
+
+    {
+      "id": 27,
+      "year": "2026",
+      "title": "NANHA-Neurostimulation in Atypical Neurodevelopment: a Harmonized Atlas",
+      "authors": "Madhumita Mondal, Camelia Guha, Sree Aswatha Suresh, Shrish Vashishth, Vignesh Muralidharan, Areejit Samal",
+      "journal": "bioRxiv",
+      "link": "https://doi.org/10.64898/2026.09.12.751126",
+      "type": "preprint",
+      "tags": ["neurostimulation", "neurodevelopmental disorders", "database", "NIBS", "brain stimulation"]
+    },
+
+    {
       "id": 26,
       "year": "2026",
       "title": "Investigating sensorimotor beta burst dynamics as a robust biomarker for graded force modulation in humans",
