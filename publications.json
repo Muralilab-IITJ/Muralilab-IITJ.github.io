@@ -3,7 +3,7 @@
     {
       "id": 29,
       "year": "2026",
-      "title": "Meditation as a Bioactive Intervention: Molecular and Neurophysiological Mechanisms Revealed by Connectivity Mapping",
+      "title": "Meditation as a bioactive intervention: evidence of translational potential via Connectivity Mapping and TMS neurophysiology",
       "authors": "Aditi Joshi, Vignesh Muralidharan,Deep Patel,  Mitali Mukerji",
       "journal": "Frontiers in Human Neuroscience",
       "link": "https://doi.org/10.3389/fnhum.2026.1904068",
@@ -311,17 +311,7 @@
       "link": "https://doi.org/10.3389/fnhum.2016.00649",
       "type": "journal",
       "tags": ["Modelling","Parkinson's disease"]
-    },
-
-    {
-      "id": 316,
-      "year": "2026",
-      "title": "Meditation as a bioactive intervention: evidence of translational potential via Connectivity Mapping and TMS neurophysiology",
-      "authors": "Aditi Joshi, Vignesh Muralidharan, Deep Patel, Mitali Mukerji",
-      "journal": "Frontiers in Human Neuroscience",
-      "link": "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2026.1904068/full",
-      "type": "journal",
-      "tags": ["Meditation", "Neuroscience", "Connectivity Mapping", "TMS"]
     }
+
   ]
 }
