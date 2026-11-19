@@ -81,8 +81,11 @@
                 // Render the news
                 container.innerHTML = sortedNews.map(item => {
                     // This requires the helper function below!
-                    const mainContent = highlightNames(item.content, item.highlightedNames);
-                    
+                    const highlightedContent = highlightNames(item.content, item.highlightedNames);
+                    const mainContent = item.link
+                        ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer">${highlightedContent}</a>`
+                        : highlightedContent;
+                        
                     const extraDetails = item.details 
                         ? `<p class="archive-details">${item.details}</p>` 
                         : '';

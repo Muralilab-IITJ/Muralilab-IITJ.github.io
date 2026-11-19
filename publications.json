@@ -1,8 +1,17 @@
 {
   "publications": [
-
     {
       "id": 29,
+      "year": "2026",
+      "title": "Meditation as a Bioactive Intervention: Molecular and Neurophysiological Mechanisms Revealed by Connectivity Mapping",
+      "authors": "Aditi Joshi, Vignesh Muralidharan,Deep Patel,  Mitali Mukerji",
+      "journal": "Frontiers in Human Neuroscience",
+      "link": "https://doi.org/10.3389/fnhum.2026.1904068",
+      "type": "journal",
+      "tags": ["Meditation", "Connectivity Mapping", "MCA", "meditation", "neurophysiology", "TMS"]
+    },
+    {
+      "id": 28,
       "year": "2026",
       "title": "Modulation of the speed of Intrinsic Alpha Frequency (IAF) with tACS modulates variability of illusory speech perception",
       "authors": "Shreya Deb, Debottam Bhunia, Vinsea AV Singh, Vignesh Muralidharan, Dipanjan Roy",
@@ -13,7 +22,7 @@
     },
 
     {
-      "id": 28,
+      "id": 27,
       "year": "2026",
       "title": "Impaired value estimation over space explains turn-induced freezing of gait in Parkinson's disease: A cortico-basal ganglia-inspired reinforcement learning model",
       "authors": "Neermita Bhattacharya, Sandeep Sathyanandan Nair, V Srinivasa Chakravarthy, Vignesh Muralidharan",
@@ -24,7 +33,7 @@
     },
 
     {
-      "id": 27,
+      "id": 26,
       "year": "2026",
       "title": "NANHA-Neurostimulation in Atypical Neurodevelopment: a Harmonized Atlas",
       "authors": "Madhumita Mondal, Camelia Guha, Sree Aswatha Suresh, Shrish Vashishth, Vignesh Muralidharan, Areejit Samal",
@@ -35,7 +44,7 @@
     },
 
     {
-      "id": 26,
+      "id": 25,
       "year": "2026",
       "title": "Investigating sensorimotor beta burst dynamics as a robust biomarker for graded force modulation in humans",
       "authors": "Md Shaheen Perwez, James J Bonaiuto, Bhivraj Suthar, Vignesh Muralidharan",
@@ -43,19 +52,10 @@
       "link": "https://doi.org/10.64898/2026.05.07.723396 ",
       "type": "preprint",
       "tags": ["Motor Control","Sensorimotor Beta Burst",
-    "Force Modulation",
-    "BCI"]
+      "Force Modulation",
+      "BCI"]
     },
-    {
-      "id": 25,
-      "year": "2025",
-      "title": "Meditation as a Bioactive Intervention: Molecular and Neurophysiological Mechanisms Revealed by Connectivity Mapping",
-      "authors": "Aditi Joshi, Deep Patel, Vignesh Muralidharan, Mitali Mukerji",
-      "journal": "bioRxiv",
-      "link": "https://doi.org/10.64898/2025.12.27.696659 ",
-      "type": "preprint",
-      "tags": ["Meditation"]
-    },
+    
 
     {
       "id": 24,
@@ -67,18 +67,19 @@
       "type": "presentation",
       "tags": ["Aperiodic Oscillations"]
     },
+
     {
-  "id": 23,
-  "year": "2025",
-  "title": "Investigating sensorimotor beta burst dynamics as a robust biomarker for graded force modulation in humans",
-  "authors": "Md Shaheen Perwez, Dr. Bhivraj Suthar, Dr. Vignesh Muralidharan",
-  "journal": "ACCS",
-  "link": "",
-  "type": "presentation",
-  "tags": [
-    "Sensorimotor Beta Burst",
-    "Force Modulation",
-    "BCI"]
+      "id": 23,
+      "year": "2025",
+      "title": "Investigating sensorimotor beta burst dynamics as a robust biomarker for graded force modulation in humans",
+      "authors": "Md Shaheen Perwez, Dr. Bhivraj Suthar, Dr. Vignesh Muralidharan",
+      "journal": "ACCS",
+      "link": "",
+      "type": "presentation",
+      "tags": [
+        "Sensorimotor Beta Burst",
+        "Force Modulation",
+        "BCI"]
     },
 
     {
@@ -113,7 +114,7 @@
       "type": "review",
       "tags": ["Transient Oscillations"]
     },
-    
+
     {
       "id": 19,
       "year": "2023",
@@ -124,7 +125,7 @@
       "type": "journal",
       "tags": ["Conflict control", "EEG"]
     },
-    
+
     {
       "id": 18,
       "year": "2022",
@@ -135,6 +136,7 @@
       "type": "journal",
       "tags": ["Action-stopping" , "EEG"]
     },
+
     {
       "id": 17,
       "year": "2022",
@@ -145,6 +147,7 @@
       "type": "journal",
       "tags": ["Action-stopping" , "EEG"]
     },
+
     {
       "id": 16,
       "year": "2022",
@@ -155,6 +158,7 @@
       "type": "journal",
       "tags": ["TMS","Entrainment", "EEG"]
     },
+
     {
       "id": 15,
       "year": "2021",
@@ -165,7 +169,7 @@
       "type": "review",
       "tags": ["Action-stopping" ]
     },
-    
+
     {
       "id": 14,
       "year": "2021",
@@ -176,7 +180,7 @@
       "type": "journal",
       "tags": ["Post-movement Beta" ]
     },
-    
+
     {
       "id": 13,
       "year": "2020",
@@ -187,6 +191,7 @@
       "type": "journal",
       "tags": ["Action-stopping" ]
     },
+
     {
       "id": 12,
       "year": "2020",
@@ -197,6 +202,7 @@
       "type": "journal",
       "tags": ["Action-stopping" ]
     },
+
     {
       "id": 11,
       "year": "2019",
@@ -207,6 +213,7 @@
       "type": "journal",
       "tags": ["Modelling","Stroke","Basal ganglia"]
     },
+
     {
       "id": 10,
       "year": "2019",
@@ -217,7 +224,6 @@
       "type": "journal",
       "tags": ["Action-stopping" ]
     },
-    
 
     {
       "id": 9,
@@ -240,6 +246,7 @@
       "type": "journal",
       "tags": ["Computational Neuroscience"]
     },
+
     {
       "id": 7,
       "year": "2018",
@@ -261,6 +268,7 @@
       "type": "journal",
       "tags": ["Modelling","Computational Neuroscience"]
     },
+
     {
       "id": 5,
       "year": "2018",
@@ -282,7 +290,7 @@
       "type": "book-chapter",
       "tags": ["Modelling","Parkinson's disease"]
     },
-  
+
     {
       "id": 3,
       "year": "2017",
@@ -293,6 +301,7 @@
       "type": "journal",
       "tags": ["Modelling","Basal ganglia"]
     },
+
     {
       "id": 2,
       "year": "2017",
@@ -303,15 +312,16 @@
       "type": "journal",
       "tags": ["Modelling","Parkinson's disease"]
     },
+
     {
-      "id": 1,
-      "year": "2014",
-      "title": "A computational model of altered gait patterns in Parkinson's disease patients negotiating narrow doorways",
-      "authors": "Muralidharan V, Balasubramani PP, Chakravarthy VS, Gilat R, Lewis SJ, Moustafa AA",
-      "journal": "Frontiers in Computational Neuroscience",
-      "link": "https://doi.org/10.3389/fncom.2013.00190",
+      "id": 316,
+      "year": "2026",
+      "title": "Meditation as a bioactive intervention: evidence of translational potential via Connectivity Mapping and TMS neurophysiology",
+      "authors": "Aditi Joshi, Vignesh Muralidharan, Deep Patel, Mitali Mukerji",
+      "journal": "Frontiers in Human Neuroscience",
+      "link": "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2026.1904068/full",
       "type": "journal",
-      "tags": ["Modelling", "Parkinson's disease"]
+      "tags": ["Meditation", "Neuroscience", "Connectivity Mapping", "TMS"]
     }
   ]
 }

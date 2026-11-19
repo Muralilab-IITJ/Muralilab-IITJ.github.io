@@ -1,6 +1,16 @@
 {
     "news": [
         {
+            "id": 10,
+            "date": "2026-11-19",
+            "content": "Dr. Vignesh Muralidharan and team published research in Frontiers in Human Neuroscience covered by ETV Bharat",
+            "type": "news",
+            "highlightedNames": ["Dr. Vignesh Muralidharan"],
+            "details":"Dr. Vignesh Muralidharan and his team’s research, exploring the potential biological links between meditation-related molecular signatures and the effects of over 438 drugs, has been published in Frontiers in Human Neuroscience. The study uses Connectivity Mapping and TMS-based neurophysiology data to investigate how meditation may influence the brain’s excitation–inhibition balance. The work was also featured in local Hindi news coverage by ETV Bharat.",
+            "image":"images/news_image_1.jpeg",
+            "link": "https://www.etvbharat.com/hi/bharat/does-meditation-act-like-medicine-and-can-it-be-measured-research-from-iit-jodhpur-provides-an-answer-rjn26111805650"
+        },
+        {
             "id": 9,
             "date": "2026-08-02",
             "content": "Dr. Vignesh recieved the Dr. Vandana Sharma Memorial Award for Teaching Innovation 2026 at the IIT Jodhpur Foundation Day Celebrations.",
